@@ -5,7 +5,7 @@
 				<CheckInPanel />
 
 				<AttendanceCalendar>
-					<CheckInPanel />
+					<!-- <CheckInPanel /> -->
 				</AttendanceCalendar>
 
 				<QuickLinks :items="quickLinks" title="Quick Links" />

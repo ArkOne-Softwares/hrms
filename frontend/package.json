@@ -3,7 +3,7 @@
 	"private": true,
 	"version": "0.0.0",
 	"scripts": {
-		"dev": "vite dev --host 0.0.0.0",
+		"dev": "vite --host 0.0.0.0",
 		"serve": "vite preview",
 		"build": "vite build --base=/assets/hrms/frontend/ && yarn copy-html-entry",
 		"ionic:build": "npm run build",
