@@ -23,6 +23,7 @@ import dayjs from "@/utils/dayjs"
 import getIonicConfig from "@/utils/ionicConfig"
 
 import FrappePushNotification from "../public/frappe-push-notification"
+import VCalendar from 'v-calendar';
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/vue/css/core.css"
@@ -31,6 +32,7 @@ import "@ionic/vue/css/core.css"
 import "./theme/variables.css"
 
 import "./main.css"
+import 'v-calendar/style.css';
 
 const app = createApp(App)
 const socket = initSocket()
@@ -45,6 +47,7 @@ app.component("EmptyState", EmptyState)
 
 app.use(router)
 app.use(IonicVue, getIonicConfig())
+app.use(VCalendar, {})
 
 if (session?.isLoggedIn && !employeeResource?.data) {
 	employeeResource.reload()
