@@ -4,7 +4,7 @@
 	</a>
 	<h2>Frappe HR</h2>
 	<p align="center">
-		<p>Open Source, modern, and easy-to-use HR and Payroll Software for all organizations</p>
+		<p>Open Source, modern, and easy-to-use HR and Payroll Software for all organizations. Modified by Arkone Softwares</p>
 	</p>
 
 [![CI](https://github.com/frappe/hrms/actions/workflows/ci.yml/badge.svg?branch=develop)](https://github.com/frappe/hrms/actions/workflows/ci.yml)
