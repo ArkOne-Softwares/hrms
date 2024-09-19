@@ -9,10 +9,20 @@
 
 				<div class="mx-auto mt-10 w-full px-8 sm:w-96">
 					<form class="flex flex-col space-y-4" @submit.prevent="submit">
-						<Input label="Email" placeholder="johndoe@mail.com" v-model="email"
-							:type="email !== 'Administrator' ? 'email' : 'text'" autocomplete="username" />
-						<Input label="Password" type="password" placeholder="••••••" v-model="password"
-							autocomplete="current-password" />
+						<Input
+							label="Email"
+							placeholder="johndoe@mail.com"
+							v-model="email"
+							type="text"
+							autocomplete="username"
+						/>
+						<Input
+							label="Password"
+							type="password"
+							placeholder="••••••"
+							v-model="password"
+							autocomplete="current-password"
+						/>
 						<ErrorMessage :message="errorMessage" />
 						<Button :loading="session.login.loading" variant="solid"
 							class="disabled:bg-gray-700 disabled:text-white !mt-6">
