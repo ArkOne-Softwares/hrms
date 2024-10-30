@@ -1,104 +1,134 @@
 <template>
-	<v-calendar ref="calendar" :first-day-of-week="2" expanded v-model="selectedDate" :attributes='attrs'
-		@update:pages="pageChange">
-		<template #footer>
-			<div class="w-full px-4 pb-3">
-				<p class="bg-indigo-600 hover:bg-indigo-700 font-bold w-full px-3 py-1 rounded-md">
-					Present: {{ presentData.length }} | Absent: {{ absentData.length }}
-				</p>
+	<div class="flex flex-col w-full gap-5" v-if="calendarEvents.data">
+		<div class="text-lg text-gray-800 font-bold">Attendance Calendar</div>
+
+		<div class="flex flex-col gap-6 bg-white py-6 px-3.5 rounded-lg border-none">
+			<!-- Month Change -->
+			<div class="flex flex-row justify-between items-center px-4">
+				<Button
+					icon="chevron-left"
+					variant="ghost"
+					@click="firstOfMonth = firstOfMonth.subtract(1, 'M')"
+				/>
+				<span class="text-lg text-gray-800 font-bold">
+					{{ firstOfMonth.format("MMMM") }} {{ firstOfMonth.format("YYYY") }}
+				</span>
+				<Button
+					icon="chevron-right"
+					variant="ghost"
+					@click="firstOfMonth = firstOfMonth.add(1, 'M')"
+				/>
 			</div>
 
-			<slot></slot>
-		</template>
-	</v-calendar>
+			<!-- Calendar -->
+			<div class="grid grid-cols-7 gap-y-3">
+				<div
+					v-for="day in DAYS"
+					class="flex justify-center text-gray-600 text-sm font-medium leading-6"
+				>
+					{{ day }}
+				</div>
+				<div v-for="_ in firstOfMonth.get('d')" />
+				<div v-for="index in firstOfMonth.endOf('M').get('D')">
+					<div
+						class="h-8 w-8 flex rounded-full mx-auto"
+						:class="getEventOnDate(index) && `bg-${colorMap[getEventOnDate(index)]}`"
+					>
+						<span class="text-gray-800 text-sm font-medium m-auto">
+							{{ index }}
+						</span>
+					</div>
+				</div>
+			</div>
+
+			<hr />
+
+			<!-- Summary -->
+			<div class="grid grid-cols-4 mx-2">
+				<div v-for="status in summaryStatuses" class="flex flex-col gap-1">
+					<div class="flex flex-row gap-1 items-center">
+						<span class="rounded full h-3 w-3" :class="`bg-${colorMap[status]}`" />
+						<span class="text-gray-600 text-sm font-medium leading-5"> {{ __(status) }} </span>
+					</div>
+					<span class="text-gray-800 text-base font-semibold leading-6 mx-auto">
+						{{ summary[status] || 0 }}
+					</span>
+				</div>
+			</div>
+		</div>
+	</div>
 </template>
 
 <script setup>
-import { createResource, createListResource, toast, FeatherIcon } from "frappe-ui"
-import { computed, inject, ref, onMounted, onBeforeUnmount } from "vue"
-const DOCTYPE = "Attendance"
+import { computed, inject, ref, watch } from "vue"
+import { createResource } from "frappe-ui"
 
-const socket = inject("$socket")
-const employee = inject("$employee")
 const dayjs = inject("$dayjs")
-const selectedDate = ref(new Date())
-const startDate = ref(dayjs().startOf('month').format('YYYY-MM-DD'))
-const endDate = ref(dayjs().endOf('month').format('YYYY-MM-DD'))
-const attendance = createListResource({
-	doctype: DOCTYPE,
-	fields: ["status", "employee_name", "attendance_date", "employee", "late_entry", "early_exit"],
-	filters: [
-		["employee", "=", employee.data.name],
-		["attendance_date", ">=", startDate.value],
-		["attendance_date", "<=", endDate.value],
-	],
-	orderBy: "attendance_date desc",
-	pageLength: 31,
-})
-attendance.reload()
+const employee = inject("$employee")
+const __ = inject("$translate")
+const firstOfMonth = ref(dayjs().date(1).startOf("D"))
 
-
-const presentData = computed(() => {
-	if (!attendance.data) return [];
-
-	const presentDates = attendance.data
-		.filter(att => att.status === 'Present')
-		.map(att => att.attendance_date)
-		.filter(date => date); // Filter out undefined values
-
-	return presentDates;
-});
-
-const absentData = computed(() => {
-	if (!attendance.data) return [];
-
-	const presentDates = attendance.data
-		.filter(att => att.status === 'Absent')
-		.map(att => att.attendance_date)
-		.filter(date => date); // Filter out undefined values
-
-	return presentDates;
-});
-
-const attrs = computed(() => [
-	{
-		key: 'today',
-		highlight: true,
-		dates: new Date(),
-	},
-	{
-		bar: 'green',
-		dates: presentData.value,
-	},
-	{
-		bar: 'red',
-		dates: absentData.value,
-	},
-]);
-
-function pageChange(page) {
-	const startDateX = `${page[0].id}-01`
-	const endDateX = `${page[0].id}-${dayjs(page[0].id).daysInMonth()}`
-	if (startDateX !== startDate.value || endDateX !== endDate.value) {
-		attendance.filters = [
-			["employee", "=", employee.data.name],
-			["attendance_date", ">=", startDateX],
-			["attendance_date", "<=", endDateX],
-		]
-		startDate.value = startDateX
-		endDate.value = endDateX
-		attendance.reload()
-	}
+const colorMap = {
+	Present: "green-200",
+	"Work From Home": "green-200",
+	"Half Day": "yellow-100",
+	Absent: "red-100",
+	"On Leave": "blue-100",
+	Holiday: "gray-100",
 }
 
-onMounted(() => {
-	socket.emit("doctype_subscribe", DOCTYPE)
-	socket.on("list_update", (data) => {
-		if (data.doctype == DOCTYPE) {
-			checkins.reload()
+// __("Present"), __("Half Day"), __("Absent"), __("On Leave"), __("Work From Home")
+const summaryStatuses = ["Present", "Half Day", "Absent", "On Leave"]
+
+const summary = computed(() => {
+	const summary = {}
+
+	for (const status of Object.values(calendarEvents.data)) {
+		let updatedStatus = status === "Work From Home" ? "Present" : status
+		if (updatedStatus in summary) {
+			summary[updatedStatus] += 1
+		} else {
+			summary[updatedStatus] = 1
 		}
-	})
+	}
+
+	return summary
 })
 
+watch(
+	() => firstOfMonth.value,
+	() => {
+		calendarEvents.fetch()
+	}
+)
 
+const getEventOnDate = (date) => {
+	return calendarEvents.data[firstOfMonth.value.date(date).format("YYYY-MM-DD")]
+}
+
+const getFirstLetter = (s) => Array.from(s.trim())[0] // Unicode
+
+const DAYS = [
+	getFirstLetter(__("Sunday")),
+	getFirstLetter(__("Monday")),
+	getFirstLetter(__("Tuesday")),
+	getFirstLetter(__("Wednesday")),
+	getFirstLetter(__("Thursday")),
+	getFirstLetter(__("Friday")),
+	getFirstLetter(__("Saturday")),
+]
+
+//resources
+const calendarEvents = createResource({
+	url: "hrms.api.get_attendance_calendar_events",
+	auto: true,
+	cache: "hrms:attendance_calendar_events",
+	makeParams() {
+		return {
+			employee: employee.data.name,
+			from_date: firstOfMonth.value.format("YYYY-MM-DD"),
+			to_date: firstOfMonth.value.endOf("M").format("YYYY-MM-DD"),
+		}
+	},
+})
 </script>
