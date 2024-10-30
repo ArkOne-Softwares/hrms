@@ -8,7 +8,7 @@
           <!-- <CheckInPanel /> -->
         </AttendanceCalendar>
 
-        <QuickLinks :items="quickLinks" title="__('Quick Links')" />
+        <QuickLinks :items="quickLinks" :title="__('Quick Links')" />
 
         <RequestPanel />
       </div>
