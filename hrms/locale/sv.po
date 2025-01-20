@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: frappe\n"
 "Report-Msgid-Bugs-To: contact@frappe.io\n"
-"POT-Creation-Date: 2024-11-10 09:33+0000\n"
-"PO-Revision-Date: 2024-11-15 19:32\n"
+"POT-Creation-Date: 2025-01-12 09:34+0000\n"
+"PO-Revision-Date: 2025-01-16 07:11\n"
 "Last-Translator: contact@frappe.io\n"
 "Language-Team: Swedish\n"
 "MIME-Version: 1.0\n"
@@ -38,7 +38,7 @@ msgstr "% Användning (B / T)"
 
 #: hrms/hr/doctype/employee_checkin/employee_checkin.py:134
 msgid "'employee_field_value' and 'timestamp' are required."
-msgstr "'employee_field_value' och 'timestamp' erfodras."
+msgstr "Personal och tidstämpel erfordras."
 
 #: hrms/hr/utils.py:241
 #: hrms/payroll/doctype/payroll_period/payroll_period.py:53
@@ -376,6 +376,7 @@ msgstr "Frånvarande"
 
 #. Label of the absent_days (Float) field in DocType 'Salary Slip'
 #: hrms/payroll/doctype/salary_slip/salary_slip.json
+#: hrms/payroll/report/salary_register/salary_register.py:180
 msgid "Absent Days"
 msgstr "Frånvarande Dagar"
 
@@ -397,7 +398,7 @@ msgstr "Läsår Användare"
 #: hrms/overrides/employee_master.py:64 hrms/overrides/employee_master.py:80
 #: hrms/payroll/doctype/additional_salary/additional_salary.py:113
 msgid "Accepted"
-msgstr "Godkänd"
+msgstr "Accepterad"
 
 #. Label of the account (Link) field in DocType 'Full and Final Asset'
 #. Label of the account (Link) field in DocType 'Full and Final Outstanding
@@ -543,21 +544,19 @@ msgstr "Åtgärd vid Godkännande"
 #: hrms/hr/doctype/job_requisition/job_requisition.js:78
 #: hrms/hr/doctype/job_requisition/job_requisition.js:81
 #: hrms/hr/doctype/leave_allocation/leave_allocation.js:45
-#: hrms/hr/doctype/leave_allocation/leave_allocation.js:93
-#: hrms/hr/doctype/shift_type/shift_type.js:18
-#: hrms/hr/doctype/shift_type/shift_type.js:52
+#: hrms/hr/doctype/leave_allocation/leave_allocation.js:114
 #: hrms/payroll/doctype/salary_structure/salary_structure.js:159
 #: hrms/payroll/doctype/salary_structure_assignment/salary_structure_assignment.js:77
 msgid "Actions"
 msgstr "Åtgärder"
 
 #. Option for the 'Status' (Select) field in DocType 'Shift Assignment'
-#. Option for the 'Status' (Select) field in DocType 'Shift Assignment
-#. Schedule'
 #. Option for the 'Status' (Select) field in DocType 'Shift Assignment Tool'
+#. Option for the 'Shift Status' (Select) field in DocType 'Shift Schedule
+#. Assignment'
 #: hrms/hr/doctype/shift_assignment/shift_assignment.json
-#: hrms/hr/doctype/shift_assignment_schedule/shift_assignment_schedule.json
 #: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.json
+#: hrms/hr/doctype/shift_schedule_assignment/shift_schedule_assignment.json
 #: hrms/hr/report/employee_leave_balance/employee_leave_balance.js:44
 #: hrms/hr/report/employee_leave_balance_summary/employee_leave_balance_summary.js:40
 #: hrms/hr/report/leave_ledger/leave_ledger.js:38
@@ -610,7 +609,7 @@ msgstr "Faktisk Kostnad"
 msgid "Actual Encashable Days"
 msgstr "Faktiska Uttagbara Dagar"
 
-#: hrms/hr/doctype/leave_application/leave_application.py:396
+#: hrms/hr/doctype/leave_application/leave_application.py:398
 msgid "Actual balances aren't available because the leave application spans over different leave allocations. You can still apply for leaves which would be compensated during the next allocation."
 msgstr "Faktisk saldon är inte tillgängliga eftersom ledighet ansökan sträcker sig över olika ledighet tilldelningar. Du kan fortfarande ansöka om ledighet som skulle kompenseras vid nästa tilldelning."
 
@@ -840,7 +839,7 @@ msgstr "Tilldelar Ledighet"
 msgid "Allocation"
 msgstr "Tilldelning"
 
-#: hrms/hr/doctype/leave_allocation/leave_allocation.js:107
+#: hrms/hr/doctype/leave_allocation/leave_allocation.js:128
 msgid "Allocation Expired!"
 msgstr "Tilldelning Förfallen!"
 
@@ -848,7 +847,7 @@ msgstr "Tilldelning Förfallen!"
 #. 'HR Settings'
 #: hrms/hr/doctype/hr_settings/hr_settings.json
 msgid "Allow Employee Checkin from Mobile App"
-msgstr "Tillåt Personal Incheckning från Mobil App"
+msgstr "Tillåt Personal Stämpling från Mobil App"
 
 #. Label of the allow_encashment (Check) field in DocType 'Leave Type'
 #: hrms/hr/doctype/leave_type/leave_type.json
@@ -860,6 +859,11 @@ msgstr "Tillåt Uttag"
 #: hrms/hr/doctype/hr_settings/hr_settings.json
 msgid "Allow Geolocation Tracking"
 msgstr "Tillåt Geolokalisering Spårning"
+
+#. Label of the applicable_after (Int) field in DocType 'Leave Type'
+#: hrms/hr/doctype/leave_type/leave_type.json
+msgid "Allow Leave Application After (Working Days)"
+msgstr "Tillåt Ledighet Ansökan Efter (Arbetsdagar)"
 
 #. Label of the allow_multiple_shift_assignments (Check) field in DocType 'HR
 #. Settings'
@@ -897,7 +901,7 @@ msgstr "Tillåt Användare"
 #. 'Shift Type'
 #: hrms/hr/doctype/shift_type/shift_type.json
 msgid "Allow check-out after shift end time (in minutes)"
-msgstr "Tillåt Utcheckning efter Skift Sluttid (Minuter)"
+msgstr "Tillåt Utstämpling efter Skift Sluttid (Minuter)"
 
 #. Description of the 'Allow Users' (Section Break) field in DocType 'Leave
 #. Block List'
@@ -915,7 +919,7 @@ msgstr "Tillåt tilldelning av mer Ledighet än antal dagar under tilldelning pe
 #. 'Shift Type'
 #: hrms/hr/doctype/shift_type/shift_type.json
 msgid "Alternating entries as IN and OUT during the same shift"
-msgstr "Växlande poster som In/Utcheckning under samma skift"
+msgstr "Växlande poster som IN och UT under samma skift"
 
 #. Label of the amended_from (Link) field in DocType 'Appraisal'
 #. Label of the amended_from (Link) field in DocType 'Attendance'
@@ -945,6 +949,7 @@ msgstr "Växlande poster som In/Utcheckning under samma skift"
 #. Label of the amended_from (Link) field in DocType 'Leave Policy Assignment'
 #. Label of the amended_from (Link) field in DocType 'Shift Assignment'
 #. Label of the amended_from (Link) field in DocType 'Shift Request'
+#. Label of the amended_from (Link) field in DocType 'Shift Schedule'
 #. Label of the amended_from (Link) field in DocType 'Staffing Plan'
 #. Label of the amended_from (Link) field in DocType 'Training Event'
 #. Label of the amended_from (Link) field in DocType 'Training Feedback'
@@ -997,6 +1002,7 @@ msgstr "Växlande poster som In/Utcheckning under samma skift"
 #: hrms/hr/doctype/leave_policy_assignment/leave_policy_assignment.json
 #: hrms/hr/doctype/shift_assignment/shift_assignment.json
 #: hrms/hr/doctype/shift_request/shift_request.json
+#: hrms/hr/doctype/shift_schedule/shift_schedule.json
 #: hrms/hr/doctype/staffing_plan/staffing_plan.json
 #: hrms/hr/doctype/training_event/training_event.json
 #: hrms/hr/doctype/training_feedback/training_feedback.json
@@ -1063,7 +1069,7 @@ msgstr "Belopp Baserad på Formel"
 #. Advance'
 #: hrms/hr/doctype/employee_advance/employee_advance.json
 msgid "Amount claimed via Expense Claim"
-msgstr "Belopp som begärts via Kostnad Anspråk"
+msgstr "Belopp som begärts via Utlägg"
 
 #. Description of the 'Advance Amount' (Currency) field in DocType 'Employee
 #. Advance'
@@ -1097,7 +1103,7 @@ msgstr "elopp på {0} som redan tilldelad för komponent {1}, ange belopp lika m
 msgid "Annual Allocation"
 msgstr "Årlig Tilldelning"
 
-#: hrms/hr/doctype/leave_allocation/leave_allocation.py:356
+#: hrms/hr/doctype/leave_allocation/leave_allocation.py:369
 msgid "Annual Allocation Exceeded"
 msgstr "Årlig Tilldelning Överskriden"
 
@@ -1119,11 +1125,6 @@ msgstr "Eventuella Detaljer"
 #: hrms/hr/doctype/appraisal/appraisal.json
 msgid "Any other remarks, noteworthy effort that should go in the records"
 msgstr "Eventuella andra anmärkningar, anmärkningsvärd ansträngning som borde skriva i"
-
-#. Label of the applicable_after (Int) field in DocType 'Leave Type'
-#: hrms/hr/doctype/leave_type/leave_type.json
-msgid "Applicable After (Working Days)"
-msgstr "Tillämplig Efter (Arbetsdagar)"
 
 #. Label of the applicable_earnings_component (Table MultiSelect) field in
 #. DocType 'Gratuity Rule'
@@ -1327,7 +1328,7 @@ msgstr "Utvärdering Mall Saknas"
 #. Label of the template_title (Data) field in DocType 'Appraisal Template'
 #: hrms/hr/doctype/appraisal_template/appraisal_template.json
 msgid "Appraisal Template Title"
-msgstr "Utvärdering Mall Titel"
+msgstr "Utvärdering Mall Benämning"
 
 #: hrms/hr/doctype/appraisal_cycle/appraisal_cycle.py:135
 msgid "Appraisal Template not found for some designations."
@@ -1375,7 +1376,7 @@ msgid "Approval Status must be 'Approved' or 'Rejected'"
 msgstr "Godkännande Status måste vara \"Godkänd\" eller \"Avvisad\""
 
 #: frontend/src/components/RequestActionSheet.vue:108
-#: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.js:108
+#: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.js:119
 msgid "Approve"
 msgstr "Godkänn"
 
@@ -1467,14 +1468,16 @@ msgid "Assign Salary Structure to {0} employee(s)?"
 msgstr "Tilldela Löneart till {0} personal?"
 
 #. Option for the 'Action' (Select) field in DocType 'Shift Assignment Tool'
-#: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.js:99
+#: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.js:110
 #: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.json
 msgid "Assign Shift"
 msgstr "Tilldela Skift"
 
-#: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.js:236
-msgid "Assign Shift to {0} employee(s)?"
-msgstr "Tilldela Skift till {0}?"
+#. Option for the 'Action' (Select) field in DocType 'Shift Assignment Tool'
+#: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.js:114
+#: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.json
+msgid "Assign Shift Schedule"
+msgstr "Tilldela Skift Schema"
 
 #: hrms/payroll/doctype/bulk_salary_structure_assignment/bulk_salary_structure_assignment.js:53
 msgid "Assign Structure"
@@ -1484,14 +1487,6 @@ msgstr "Tilldela Struktur"
 msgid "Assigning Salary Structure"
 msgstr "Tilldelar Löneart"
 
-#: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.js:249
-msgid "Assigning Shift"
-msgstr "Tilldelar Skift"
-
-#: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.py:175
-msgid "Assigning Shift..."
-msgstr "Tilldelar Skift..."
-
 #: hrms/payroll/doctype/bulk_salary_structure_assignment/bulk_salary_structure_assignment.py:113
 msgid "Assigning Structure..."
 msgstr "Tilldelar Struktur..."
@@ -1499,6 +1494,10 @@ msgstr "Tilldelar Struktur..."
 #: hrms/payroll/doctype/salary_structure/salary_structure.py:282
 msgid "Assigning Structures..."
 msgstr "Tilldelar Lönearter..."
+
+#: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.js:270
+msgid "Assigning..."
+msgstr "Tilldelar..."
 
 #. Label of the assignment_based_on (Select) field in DocType 'Leave Policy
 #. Assignment'
@@ -1649,7 +1648,7 @@ msgstr "Närvaro för personal {0} är redan angiven för överlappande skift {1
 msgid "Attendance for employee {0} is already marked for the date {1}: {2}"
 msgstr "Närvaro för personal {0} är redan angiven för följande datum {1}: {2}"
 
-#: hrms/hr/doctype/leave_application/leave_application.py:554
+#: hrms/hr/doctype/leave_application/leave_application.py:556
 msgid "Attendance for employee {0} is already marked for this day"
 msgstr "Närvaro för personal {0} angiven för denna dag"
 
@@ -1661,9 +1660,9 @@ msgstr "Närvaro för följande datum kommer att hoppas över/skrivas över vid 
 msgid "Attendance from {0} to {1} has already been marked for the Employee {2}"
 msgstr "Närvaro från {0} till {1} är redan angiven för personal {2}"
 
-#: hrms/hr/doctype/shift_type/shift_type.js:47
+#: hrms/hr/doctype/shift_type/shift_type.js:34
 msgid "Attendance has been marked as per employee check-ins"
-msgstr "Närvaro hämtas per Personal Incheckning"
+msgstr "Närvaro hämtas per Personal Stämpling"
 
 #: hrms/public/js/templates/employees_with_unmarked_attendance.html:36
 msgid "Attendance has been marked for all the employees between the selected payroll dates."
@@ -1801,7 +1800,7 @@ msgstr "Bank Konto Nummer"
 #. Label of the section_break_75 (Tab Break) field in DocType 'Salary Slip'
 #: hrms/payroll/doctype/salary_slip/salary_slip.json
 msgid "Bank Details"
-msgstr "Bank Uppgifter"
+msgstr "Bank Detaljer"
 
 #: hrms/hr/doctype/expense_claim/expense_claim.js:147
 msgid "Bank Entries"
@@ -1841,7 +1840,7 @@ msgstr "Starta (Dagar)"
 #. 'Shift Type'
 #: hrms/hr/doctype/shift_type/shift_type.json
 msgid "Begin check-in before shift start time (in minutes)"
-msgstr "Starta Incheckning före Skift Start Tid (Minuter)"
+msgstr "Starta Instämpling före Skift Start Tid (Minuter)"
 
 #. Option for the 'Level' (Select) field in DocType 'Training Event'
 #: hrms/hr/doctype/training_event/training_event.json
@@ -1965,7 +1964,7 @@ msgstr "Bonus Betalning Datum kan inte vara tidigare datum"
 #: hrms/hr/doctype/appraisee/appraisee.json
 #: hrms/hr/doctype/employee_attendance_tool/employee_attendance_tool.json
 #: hrms/hr/doctype/leave_control_panel/leave_control_panel.json
-#: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.js:171
+#: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.js:194
 #: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.json
 #: hrms/hr/report/employee_analytics/employee_analytics.py:33
 #: hrms/hr/report/employee_birthday/employee_birthday.py:24
@@ -1975,7 +1974,7 @@ msgstr "Bonus Betalning Datum kan inte vara tidigare datum"
 #: hrms/payroll/doctype/salary_slip/salary_slip.json
 #: hrms/payroll/report/salary_payments_based_on_payment_mode/salary_payments_based_on_payment_mode.py:29
 #: hrms/payroll/report/salary_payments_via_ecs/salary_payments_via_ecs.py:21
-#: hrms/payroll/report/salary_register/salary_register.py:133
+#: hrms/payroll/report/salary_register/salary_register.py:134
 #: hrms/public/js/salary_slip_deductions_report_filters.js:48
 msgid "Branch"
 msgstr "Bransch"
@@ -1983,10 +1982,6 @@ msgstr "Bransch"
 #: hrms/payroll/doctype/payroll_entry/payroll_entry.py:193
 msgid "Branch: {0}"
 msgstr "Branch: {0}"
-
-#: hrms/hr/doctype/shift_type/shift_type.js:9
-msgid "Bulk Assign Shift"
-msgstr "Mass Tilldela Skift"
 
 #: hrms/payroll/doctype/salary_structure/salary_structure.js:131
 msgid "Bulk Assignments"
@@ -2002,7 +1997,7 @@ msgstr "Mass Ledighet Regel Tilldelning"
 #: hrms/payroll/doctype/salary_structure/salary_structure_list.js:3
 #: hrms/payroll/workspace/salary_payout/salary_payout.json
 msgid "Bulk Salary Structure Assignment"
-msgstr "Mass Löneart Tilldelning"
+msgstr "Löneart Masstilldelning"
 
 #. Description of the 'Calculate Final Score based on Formula' (Check) field in
 #. DocType 'Appraisal Cycle'
@@ -2026,7 +2021,7 @@ msgstr "Beräkna slutresultat baserat på formel"
 #. 'Gratuity Rule'
 #: hrms/payroll/doctype/gratuity_rule/gratuity_rule.json
 msgid "Calculate Gratuity Amount Based On"
-msgstr "Beräkna Dricks Belopp Baserat På"
+msgstr "Beräkna Belöning Belopp Baserat På"
 
 #. Label of the payroll_based_on (Select) field in DocType 'Payroll Settings'
 #: hrms/payroll/doctype/payroll_settings/payroll_settings.json
@@ -2084,11 +2079,15 @@ msgstr "Annullering i Kö"
 msgid "Cancelled"
 msgstr "Annullerad"
 
-#: hrms/api/roster.py:116
+#: hrms/hr/doctype/leave_allocation/leave_allocation.py:320
+msgid "Cannot allocate leaves outside the allocation period {0} - {1}"
+msgstr "Kan inte tilldela ledighet utanför tilldelning period {0} - {1}"
+
+#: hrms/api/roster.py:139
 msgid "Cannot break shift after end date"
 msgstr "Kan inte bryta skift efter slutdatum"
 
-#: hrms/api/roster.py:118
+#: hrms/api/roster.py:141
 msgid "Cannot break shift before start date"
 msgstr "Kan inte bryta skift före startdatum"
 
@@ -2098,7 +2097,7 @@ msgstr "Kan inte avbryta Skift Tilldelning: {0} eftersom det är kopplad till N�
 
 #: hrms/hr/doctype/shift_assignment/shift_assignment.py:53
 msgid "Cannot cancel Shift Assignment: {0} as it is linked to Employee Checkin: {1}"
-msgstr "Kan inte avbryta Skift Tilldelning: {0} eftersom det är kopplad till Personal Incheckning: {1}"
+msgstr "Kan inte avbryta Skift Tilldelning: {0} eftersom det är kopplad till Personal Stämpling: {1}"
 
 #: hrms/payroll/doctype/salary_slip/salary_slip.py:270
 msgid "Cannot create Salary Slip for Employee joining after Payroll Period"
@@ -2116,7 +2115,7 @@ msgstr "Kan inte skapa Jobb Sökande mot stängd Jobb Erbjudande"
 msgid "Cannot create or change transactions against an Appraisal Cycle with status {0}."
 msgstr "Kan inte skapa eller ändra transaktioner mot utvärderingscykel med status {0}."
 
-#: hrms/hr/doctype/leave_application/leave_application.py:561
+#: hrms/hr/doctype/leave_application/leave_application.py:563
 msgid "Cannot find active Leave Period"
 msgstr "Kan inte hitta aktiv Ledighet Period"
 
@@ -2188,11 +2187,11 @@ msgstr "Se Fel Logg {0} för mer detaljer."
 
 #: frontend/src/components/CheckInPanel.vue:124
 msgid "Check In"
-msgstr "Checka in"
+msgstr "Stämpla In"
 
 #: frontend/src/components/CheckInPanel.vue:123
 msgid "Check Out"
-msgstr "Checka Ut"
+msgstr "Stämpla Ut"
 
 #. Label of the check_vacancies (Check) field in DocType 'HR Settings'
 #: hrms/hr/doctype/hr_settings/hr_settings.json
@@ -2206,7 +2205,7 @@ msgstr "Se {0} för mer detaljer."
 
 #: frontend/src/components/CheckInPanel.vue:160
 msgid "Check-in"
-msgstr "Checka In"
+msgstr "Stämpla In"
 
 #. Label of the check_in_date (Date) field in DocType 'Travel Itinerary'
 #: hrms/hr/doctype/travel_itinerary/travel_itinerary.json
@@ -2215,7 +2214,7 @@ msgstr "Incheckning Datum"
 
 #: frontend/src/components/CheckInPanel.vue:160
 msgid "Check-out"
-msgstr "Checka Ut"
+msgstr "Stämpla Ut"
 
 #. Label of the check_out_date (Date) field in DocType 'Travel Itinerary'
 #: hrms/hr/doctype/travel_itinerary/travel_itinerary.json
@@ -2225,7 +2224,7 @@ msgstr "Utcheckning Datum"
 #. Label of the checkin_radius (Int) field in DocType 'Shift Location'
 #: hrms/hr/doctype/shift_location/shift_location.json
 msgid "Checkin Radius"
-msgstr "Incheckning Radie"
+msgstr "Stämpling Radie"
 
 #: hrms/hr/doctype/goal/goal_tree.js:52
 msgid "Child nodes can only be created under 'Group' type nodes"
@@ -2245,7 +2244,7 @@ msgstr "Anspråk Datum"
 #: frontend/src/views/Home.vue:47
 #: frontend/src/views/expense_claim/Dashboard.vue:17
 msgid "Claim an Expense"
-msgstr "Anspråk på Kostnad"
+msgstr "Begär Utlägg"
 
 #. Option for the 'Status' (Select) field in DocType 'Employee Advance'
 #: hrms/hr/doctype/employee_advance/employee_advance.json
@@ -2379,9 +2378,9 @@ msgstr "Provision"
 #. Label of the company (Link) field in DocType 'Leave Period'
 #. Label of the company (Link) field in DocType 'Leave Policy Assignment'
 #. Label of the company (Link) field in DocType 'Shift Assignment'
-#. Label of the company (Link) field in DocType 'Shift Assignment Schedule'
 #. Label of the company (Link) field in DocType 'Shift Assignment Tool'
 #. Label of the company (Link) field in DocType 'Shift Request'
+#. Label of the company (Link) field in DocType 'Shift Schedule Assignment'
 #. Label of the company (Link) field in DocType 'Staffing Plan'
 #. Label of the company (Link) field in DocType 'Training Event'
 #. Label of the company (Link) field in DocType 'Training Program'
@@ -2442,9 +2441,9 @@ msgstr "Provision"
 #: hrms/hr/doctype/leave_period/leave_period.json
 #: hrms/hr/doctype/leave_policy_assignment/leave_policy_assignment.json
 #: hrms/hr/doctype/shift_assignment/shift_assignment.json
-#: hrms/hr/doctype/shift_assignment_schedule/shift_assignment_schedule.json
 #: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.json
 #: hrms/hr/doctype/shift_request/shift_request.json
+#: hrms/hr/doctype/shift_schedule_assignment/shift_schedule_assignment.json
 #: hrms/hr/doctype/staffing_plan/staffing_plan.json
 #: hrms/hr/doctype/training_event/training_event.json
 #: hrms/hr/doctype/training_program/training_program.json
@@ -2491,7 +2490,7 @@ msgstr "Provision"
 #: hrms/payroll/report/bank_remittance/bank_remittance.js:9
 #: hrms/payroll/report/income_tax_computation/income_tax_computation.js:9
 #: hrms/payroll/report/salary_register/salary_register.js:39
-#: hrms/payroll/report/salary_register/salary_register.py:154
+#: hrms/payroll/report/salary_register/salary_register.py:155
 #: hrms/public/js/salary_slip_deductions_report_filters.js:7
 msgid "Company"
 msgstr "Bolag"
@@ -2626,7 +2625,7 @@ msgstr "Anslutningar"
 
 #: hrms/hr/report/shift_attendance/shift_attendance.js:58
 msgid "Consider Grace Period"
-msgstr "Inkludera Respit Period"
+msgstr "Inkludera Anstånd Period"
 
 #. Label of the consider_marked_attendance_on_holidays (Check) field in DocType
 #. 'Payroll Settings'
@@ -2727,7 +2726,7 @@ msgstr "Kostnad"
 msgid "Costing Details"
 msgstr "Kostnad Detaljer"
 
-#: hrms/payroll/doctype/salary_structure_assignment/salary_structure_assignment.py:139
+#: hrms/payroll/doctype/salary_structure_assignment/salary_structure_assignment.py:156
 msgid "Could not find any salary slip(s) for the employee {0}"
 msgstr "Kunde inte hitta någon lönespecifikation(er) för {0}"
 
@@ -2848,9 +2847,9 @@ msgstr "Skapa Lönespecifikationer"
 msgid "Create Separate Payment Entry Against Benefit Claim"
 msgstr "Skapa Separat Betalning Post mot Förmån Krav"
 
-#. Label of the create_shifts_after (Date) field in DocType 'Shift Assignment
-#. Schedule'
-#: hrms/hr/doctype/shift_assignment_schedule/shift_assignment_schedule.json
+#. Label of the create_shifts_after (Date) field in DocType 'Shift Schedule
+#. Assignment'
+#: hrms/hr/doctype/shift_schedule_assignment/shift_schedule_assignment.json
 msgid "Create Shifts After"
 msgstr "Skapa Skift Efter"
 
@@ -2866,6 +2865,10 @@ msgstr "......Skapar Betalning Poster......"
 msgid "Creating Salary Slips..."
 msgstr "Skapar Lönespecifikationer..."
 
+#: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.py:240
+msgid "Creating {0}..."
+msgstr "Skapar {0}..."
+
 #: hrms/hr/report/leave_ledger/leave_ledger.py:41
 msgid "Creation Date"
 msgstr "Skapad Datum"
@@ -2878,9 +2881,9 @@ msgstr "Skapande Misslyckades"
 msgid "Creation of Salary Structure Assignments has been queued. It may take a few minutes."
 msgstr "Skapande av Löneart Tilldelning är i kö. Det kan ta några minuter."
 
-#: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.py:148
-msgid "Creation of Shift Assignments has been queued. It may take a few minutes."
-msgstr "Skapandet av skift tilldelningar är i kö. Det kan ta några minuter."
+#: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.py:194
+msgid "Creation of {0} has been queued. It may take a few minutes."
+msgstr "Skapande av {0} är i kö. Det kan ta några minuter."
 
 #. Label of the criteria (Data) field in DocType 'Employee Feedback Criteria'
 #. Label of the criteria (Link) field in DocType 'Employee Feedback Rating'
@@ -2938,7 +2941,7 @@ msgstr "Kriterier baserade på vilken Personal som ska Bedömas i Prestation Åt
 #: hrms/payroll/doctype/salary_structure_assignment/salary_structure_assignment.json
 #: hrms/payroll/report/bank_remittance/bank_remittance.py:51
 #: hrms/payroll/report/salary_register/salary_register.js:26
-#: hrms/payroll/report/salary_register/salary_register.py:242
+#: hrms/payroll/report/salary_register/salary_register.py:249
 #: hrms/payroll/workspace/salary_payout/salary_payout.json
 msgid "Currency"
 msgstr "Valuta"
@@ -2949,7 +2952,7 @@ msgstr "Valuta"
 msgid "Currency "
 msgstr "Valuta"
 
-#: hrms/payroll/doctype/salary_structure_assignment/salary_structure_assignment.py:89
+#: hrms/payroll/doctype/salary_structure_assignment/salary_structure_assignment.py:92
 msgid "Currency of selected Income Tax Slab should be {0} instead of {1}"
 msgstr "Valuta för vald Inkomst Skatt Tabell ska vara {0} istället för {1}"
 
@@ -3012,7 +3015,7 @@ msgstr "Aktuell Tabell"
 msgid "Current Work Experience"
 msgstr "Aktuell Arbetsliv Erfarenhet"
 
-#: hrms/hr/doctype/compensatory_leave_request/compensatory_leave_request.py:97
+#: hrms/hr/doctype/compensatory_leave_request/compensatory_leave_request.py:98
 msgid "Currently, there is no {0} leave period for this date to create/update leave allocation."
 msgstr "För närvarande finns det ingen {0} ledighet period för detta datum för att skapa/uppdatera ledighet tilldelning."
 
@@ -3163,7 +3166,7 @@ msgstr "Födelsedag Datum"
 #: hrms/payroll/doctype/retention_bonus/retention_bonus.json
 #: hrms/payroll/doctype/salary_withholding/salary_withholding.json
 #: hrms/payroll/report/income_tax_computation/income_tax_computation.py:528
-#: hrms/payroll/report/salary_register/salary_register.py:127 hrms/setup.py:396
+#: hrms/payroll/report/salary_register/salary_register.py:128 hrms/setup.py:396
 msgid "Date of Joining"
 msgstr "Anställning Datum"
 
@@ -3235,12 +3238,12 @@ msgstr "Dra av Skatt för ej uttagen Personal Förmån"
 #: hrms/payroll/doctype/payroll_entry/payroll_entry.json
 #: hrms/payroll/doctype/salary_slip/salary_slip.json
 msgid "Deduct Tax For Unsubmitted Tax Exemption Proof"
-msgstr "Dra av Skatt för ej godkänd Skatt Dispans Verifikat"
+msgstr "Dra av Skatt för ej godkänd skattebefrielse Verifikat"
 
 #. Option for the 'Type' (Select) field in DocType 'Salary Component'
 #: hrms/payroll/doctype/salary_component/salary_component.json
-#: hrms/payroll/report/salary_register/salary_register.py:84
-#: hrms/payroll/report/salary_register/salary_register.py:90
+#: hrms/payroll/report/salary_register/salary_register.py:85
+#: hrms/payroll/report/salary_register/salary_register.py:91
 msgid "Deduction"
 msgstr "Avdrag"
 
@@ -3295,7 +3298,7 @@ msgstr "Standard Förskott Konto"
 
 #: hrms/setup.py:73
 msgid "Default Expense Claim Payable Account"
-msgstr "Standard Kostnad Anspråk Konto"
+msgstr "Standard Utlägg Konto"
 
 #: hrms/overrides/company.py:133 hrms/setup.py:96
 msgid "Default Payroll Payable Account"
@@ -3307,7 +3310,7 @@ msgstr "Standard Löneutbetalning Konto"
 msgid "Default Salary Structure"
 msgstr "Standard Löneart"
 
-#: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.js:181
+#: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.js:204
 #: hrms/setup.py:207
 msgid "Default Shift"
 msgstr "Standard Skift"
@@ -3422,7 +3425,7 @@ msgstr "Leverans Rutt"
 #: hrms/hr/doctype/leave_control_panel/leave_control_panel.json
 #: hrms/hr/doctype/leave_encashment/leave_encashment.json
 #: hrms/hr/doctype/shift_assignment/shift_assignment.json
-#: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.js:176
+#: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.js:199
 #: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.json
 #: hrms/hr/doctype/shift_request/shift_request.json
 #: hrms/hr/doctype/staffing_plan/staffing_plan.json
@@ -3460,7 +3463,7 @@ msgstr "Leverans Rutt"
 #: hrms/payroll/doctype/salary_structure_assignment/salary_structure_assignment.json
 #: hrms/payroll/report/income_tax_computation/income_tax_computation.js:33
 #: hrms/payroll/report/income_tax_computation/income_tax_computation.py:515
-#: hrms/payroll/report/salary_register/salary_register.py:140
+#: hrms/payroll/report/salary_register/salary_register.py:141
 #: hrms/public/js/salary_slip_deductions_report_filters.js:42 hrms/setup.py:402
 #: hrms/templates/generators/job_opening.html:87
 msgid "Department"
@@ -3631,7 +3634,7 @@ msgstr "Beskrivning av ett Jobb Erbjudande"
 #: hrms/payroll/doctype/salary_slip/salary_slip.json
 #: hrms/payroll/doctype/salary_structure_assignment/salary_structure_assignment.json
 #: hrms/payroll/report/income_tax_computation/income_tax_computation.py:522
-#: hrms/payroll/report/salary_register/salary_register.py:147
+#: hrms/payroll/report/salary_register/salary_register.py:148
 msgid "Designation"
 msgstr "Befattning"
 
@@ -3676,7 +3679,7 @@ msgstr "Sponsor Detaljer (Namn, Plats)"
 #. 'Shift Type'
 #: hrms/hr/doctype/shift_type/shift_type.json
 msgid "Determine Check-in and Check-out"
-msgstr "Incheckning och Utcheckning baserat på"
+msgstr "Stämpling baserat på"
 
 #. Label of the disable (Check) field in DocType 'Gratuity Rule'
 #: hrms/payroll/doctype/gratuity_rule/gratuity_rule.json
@@ -3719,7 +3722,7 @@ msgstr "Avfärda"
 #. Benefit Application'
 #: hrms/payroll/doctype/employee_benefit_application/employee_benefit_application.json
 msgid "Dispensed Amount (Pro-rated)"
-msgstr "Dispens Belopp (Proportionell)"
+msgstr "Tilldelad Belopp (Proportionell)"
 
 #. Label of the do_not_include_in_total (Check) field in DocType 'Salary
 #. Component'
@@ -3825,20 +3828,20 @@ msgstr "FEL ({0}): {1}"
 #: hrms/hr/doctype/employee_attendance_tool/employee_attendance_tool.json
 #: hrms/hr/report/shift_attendance/shift_attendance.js:53
 msgid "Early Exit"
-msgstr "Tidig Utcheckning"
+msgstr "Tidig Utstämpling"
 
 #: hrms/hr/report/shift_attendance/shift_attendance.py:91
 msgid "Early Exit By"
-msgstr "Tidig Utcheckning Efter"
+msgstr "Tidig Utstämpling Efter"
 
 #. Label of the early_exit_grace_period (Int) field in DocType 'Shift Type'
 #: hrms/hr/doctype/shift_type/shift_type.json
 msgid "Early Exit Grace Period"
-msgstr "Tidig Utcheckning Respit Period"
+msgstr "Tidig Utstämpling Anstånd Period"
 
 #: hrms/hr/report/shift_attendance/shift_attendance.py:186
 msgid "Early Exits"
-msgstr "Tidiga Utcheckningar"
+msgstr "Tidiga Utstämplingar"
 
 #. Label of the earned_leave (Section Break) field in DocType 'Leave Type'
 #: hrms/hr/doctype/leave_type/leave_type.json
@@ -3864,12 +3867,12 @@ msgstr "Intjänad Ledighet tilldelas automatiskt via schemaläggare baserat på 
 
 #: hrms/hr/doctype/leave_type/leave_type.js:47
 msgid "Earned Leaves are leaves earned by an Employee after working with the company for a certain amount of time. Enabling this will allocate leaves on pro-rata basis by automatically updating Leave Allocation for leaves of this type at intervals set by 'Earned Leave Frequency."
-msgstr "Intjänad Ledighet är ledighet som tjänats in efter att man har arbetat på företaget under en viss tid. Om man aktiverar detta kommer det att tilldela ledighet på pro rata-basis genom att automatiskt uppdatera tilldelningen av ledighet för ledigheter av denna typ med intervaller som ställs in av Frekvens för intjänad ledighet."
+msgstr "Intjänad Ledighet är ledighet som intjänats efter att Personal har arbetat på bolaget under viss tid. Om detta aktiveras kommer det att tilldela ledighet på proportionell bas genom att automatiskt uppdatera tilldelningen av ledighet för ledigheter av denna typ med intervaller som anges av intervall för intjänad ledighet."
 
 #. Option for the 'Type' (Select) field in DocType 'Salary Component'
 #: hrms/payroll/doctype/salary_component/salary_component.json
-#: hrms/payroll/report/salary_register/salary_register.py:84
-#: hrms/payroll/report/salary_register/salary_register.py:90
+#: hrms/payroll/report/salary_register/salary_register.py:85
+#: hrms/payroll/report/salary_register/salary_register.py:91
 msgid "Earning"
 msgstr "Lön"
 
@@ -3968,7 +3971,7 @@ msgstr "E-post Skickad Till"
 msgid "Email Template"
 msgstr "E-post Mall"
 
-#: hrms/hr/doctype/leave_application/leave_application.py:659
+#: hrms/hr/doctype/leave_application/leave_application.py:661
 msgid "Email sent to {0}"
 msgstr "E-post skickad till {0}"
 
@@ -4000,8 +4003,8 @@ msgstr "Skickar Lönespecifikation baserat på angiven e-post adress i Personal 
 #. Label of the employee (Link) field in DocType 'Leave Ledger Entry'
 #. Label of the employee (Link) field in DocType 'Leave Policy Assignment'
 #. Label of the employee (Link) field in DocType 'Shift Assignment'
-#. Label of the employee (Link) field in DocType 'Shift Assignment Schedule'
 #. Label of the employee (Link) field in DocType 'Shift Request'
+#. Label of the employee (Link) field in DocType 'Shift Schedule Assignment'
 #. Label of the employee (Link) field in DocType 'Training Event Employee'
 #. Label of the employee (Link) field in DocType 'Training Feedback'
 #. Label of the employee (Link) field in DocType 'Training Result Employee'
@@ -4072,11 +4075,12 @@ msgstr "Skickar Lönespecifikation baserat på angiven e-post adress i Personal 
 #: hrms/hr/doctype/leave_type/leave_type.json
 #: hrms/hr/doctype/pwa_notification/pwa_notification.json
 #: hrms/hr/doctype/shift_assignment/shift_assignment.json
-#: hrms/hr/doctype/shift_assignment_schedule/shift_assignment_schedule.json
-#: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.js:161
-#: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.js:202
+#: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.js:184
+#: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.js:225
 #: hrms/hr/doctype/shift_location/shift_location.json
 #: hrms/hr/doctype/shift_request/shift_request.json
+#: hrms/hr/doctype/shift_schedule/shift_schedule.json
+#: hrms/hr/doctype/shift_schedule_assignment/shift_schedule_assignment.json
 #: hrms/hr/doctype/shift_type/shift_type.json
 #: hrms/hr/doctype/training_event_employee/training_event_employee.json
 #: hrms/hr/doctype/training_feedback/training_feedback.json
@@ -4101,14 +4105,14 @@ msgstr "Skickar Lönespecifikation baserat på angiven e-post adress i Personal 
 #: hrms/hr/report/leave_ledger/leave_ledger.js:28
 #: hrms/hr/report/leave_ledger/leave_ledger.py:28
 #: hrms/hr/report/monthly_attendance_sheet/monthly_attendance_sheet.js:35
-#: hrms/hr/report/monthly_attendance_sheet/monthly_attendance_sheet.py:98
+#: hrms/hr/report/monthly_attendance_sheet/monthly_attendance_sheet.py:101
 #: hrms/hr/report/project_profitability/project_profitability.js:37
 #: hrms/hr/report/project_profitability/project_profitability.py:140
 #: hrms/hr/report/shift_attendance/shift_attendance.js:22
 #: hrms/hr/report/shift_attendance/shift_attendance.py:22
 #: hrms/hr/report/unpaid_expense_claim/unpaid_expense_claim.js:8
 #: hrms/hr/report/unpaid_expense_claim/unpaid_expense_claim.py:18
-#: hrms/hr/report/vehicle_expenses/vehicle_expenses.js:46
+#: hrms/hr/report/vehicle_expenses/vehicle_expenses.js:57
 #: hrms/hr/report/vehicle_expenses/vehicle_expenses.py:55
 #: hrms/hr/workspace/hr/hr.json
 #: hrms/payroll/doctype/additional_salary/additional_salary.json
@@ -4135,7 +4139,7 @@ msgstr "Skickar Lönespecifikation baserat på angiven e-post adress i Personal 
 #: hrms/payroll/report/provident_fund_deductions/provident_fund_deductions.py:20
 #: hrms/payroll/report/salary_payments_via_ecs/salary_payments_via_ecs.py:35
 #: hrms/payroll/report/salary_register/salary_register.js:32
-#: hrms/payroll/report/salary_register/salary_register.py:114
+#: hrms/payroll/report/salary_register/salary_register.py:115
 #: hrms/public/js/templates/employees_with_unmarked_attendance.html:17
 msgid "Employee"
 msgstr "Personal"
@@ -4238,11 +4242,11 @@ msgstr "Introduktion Aktivitet"
 #: hrms/hr/workspace/hr/hr.json
 #: hrms/hr/workspace/shift_&_attendance/shift_&_attendance.json
 msgid "Employee Checkin"
-msgstr "In/Utcheckning"
+msgstr "Personal Stämpling"
 
 #: frontend/src/views/attendance/EmployeeCheckinList.vue:5
 msgid "Employee Checkin History"
-msgstr "Personal Incheckningshistorik"
+msgstr "Personal Stämpling Historik"
 
 #. Name of a DocType
 #: hrms/payroll/doctype/employee_cost_center/employee_cost_center.json
@@ -4259,6 +4263,8 @@ msgstr "Resultat Enhet"
 #. and Final Statement'
 #. Label of the employee_details_section (Section Break) field in DocType
 #. 'Shift Assignment'
+#. Label of the shift_details_section (Section Break) field in DocType 'Shift
+#. Schedule Assignment'
 #. Label of the employee_details (Section Break) field in DocType 'Travel
 #. Request'
 #. Label of the employee_section (Section Break) field in DocType 'Employee
@@ -4271,6 +4277,7 @@ msgstr "Resultat Enhet"
 #: hrms/hr/doctype/exit_interview/exit_interview.json
 #: hrms/hr/doctype/full_and_final_statement/full_and_final_statement.json
 #: hrms/hr/doctype/shift_assignment/shift_assignment.json
+#: hrms/hr/doctype/shift_schedule_assignment/shift_schedule_assignment.json
 #: hrms/hr/doctype/travel_request/travel_request.json
 #: hrms/payroll/doctype/employee_other_income/employee_other_income.json
 #: hrms/payroll/doctype/payroll_entry/payroll_entry.json
@@ -4333,7 +4340,7 @@ msgstr "Återkoppling Bedömning"
 #: hrms/hr/workspace/hr/hr.json
 #: hrms/payroll/doctype/bulk_salary_structure_assignment/bulk_salary_structure_assignment.json
 msgid "Employee Grade"
-msgstr "Grad"
+msgstr "Kvalificering"
 
 #. Name of a DocType
 #. Label of a Link in the Employee Lifecycle Workspace
@@ -4442,9 +4449,9 @@ msgstr "Personal Lån"
 #. Label of the employee_name (Data) field in DocType 'Leave Encashment'
 #. Label of the employee_name (Data) field in DocType 'Leave Ledger Entry'
 #. Label of the employee_name (Data) field in DocType 'Shift Assignment'
-#. Label of the employee_name (Data) field in DocType 'Shift Assignment
-#. Schedule'
 #. Label of the employee_name (Data) field in DocType 'Shift Request'
+#. Label of the employee_name (Data) field in DocType 'Shift Schedule
+#. Assignment'
 #. Label of the employee_name (Read Only) field in DocType 'Training Event
 #. Employee'
 #. Label of the employee_name (Read Only) field in DocType 'Training Feedback'
@@ -4491,9 +4498,9 @@ msgstr "Personal Lån"
 #: hrms/hr/doctype/leave_encashment/leave_encashment.json
 #: hrms/hr/doctype/leave_ledger_entry/leave_ledger_entry.json
 #: hrms/hr/doctype/shift_assignment/shift_assignment.json
-#: hrms/hr/doctype/shift_assignment_schedule/shift_assignment_schedule.json
-#: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.js:166
+#: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.js:189
 #: hrms/hr/doctype/shift_request/shift_request.json
+#: hrms/hr/doctype/shift_schedule_assignment/shift_schedule_assignment.json
 #: hrms/hr/doctype/training_event_employee/training_event_employee.json
 #: hrms/hr/doctype/training_feedback/training_feedback.json
 #: hrms/hr/doctype/training_result_employee/training_result_employee.json
@@ -4504,7 +4511,7 @@ msgstr "Personal Lån"
 #: hrms/hr/report/employee_leave_balance_summary/employee_leave_balance_summary.py:23
 #: hrms/hr/report/employees_working_on_a_holiday/employees_working_on_a_holiday.py:30
 #: hrms/hr/report/leave_ledger/leave_ledger.py:35
-#: hrms/hr/report/monthly_attendance_sheet/monthly_attendance_sheet.py:104
+#: hrms/hr/report/monthly_attendance_sheet/monthly_attendance_sheet.py:107
 #: hrms/hr/report/project_profitability/project_profitability.py:145
 #: hrms/hr/report/shift_attendance/shift_attendance.py:31
 #: hrms/hr/report/unpaid_expense_claim/unpaid_expense_claim.py:19
@@ -4527,7 +4534,7 @@ msgstr "Personal Lån"
 #: hrms/payroll/report/professional_tax_deductions/professional_tax_deductions.py:28
 #: hrms/payroll/report/provident_fund_deductions/provident_fund_deductions.py:27
 #: hrms/payroll/report/salary_payments_via_ecs/salary_payments_via_ecs.py:28
-#: hrms/payroll/report/salary_register/salary_register.py:121
+#: hrms/payroll/report/salary_register/salary_register.py:122
 #: hrms/public/js/templates/employees_with_unmarked_attendance.html:18
 msgid "Employee Name"
 msgstr "Namn"
@@ -4689,7 +4696,7 @@ msgstr "Skatt Undantag Kategori"
 #: hrms/payroll/doctype/employee_tax_exemption_declaration/employee_tax_exemption_declaration.json
 #: hrms/payroll/workspace/tax_&_benefits/tax_&_benefits.json
 msgid "Employee Tax Exemption Declaration"
-msgstr "Skattbefrielse Deklaration"
+msgstr "Skatt Undantag Deklaration"
 
 #. Name of a DocType
 #. Label of a Link in the Tax & Benefits Workspace
@@ -4703,7 +4710,7 @@ msgstr "Skatt Undantag Deklaration Kategori"
 #: hrms/payroll/doctype/employee_tax_exemption_proof_submission/employee_tax_exemption_proof_submission.json
 #: hrms/payroll/workspace/tax_&_benefits/tax_&_benefits.json
 msgid "Employee Tax Exemption Proof Submission"
-msgstr "Skatt Undantag Verifikat Godkännande"
+msgstr "Skatt Undantag Verifikat Inlämning"
 
 #. Name of a DocType
 #: hrms/payroll/doctype/employee_tax_exemption_proof_submission_detail/employee_tax_exemption_proof_submission_detail.json
@@ -4761,11 +4768,11 @@ msgstr "Personal poster skapas med valda alternativ"
 
 #: hrms/hr/doctype/shift_type/shift_type.py:169
 msgid "Employee was marked Absent due to missing Employee Checkins."
-msgstr "Personal angavs Frånvarande på grund av saknade incheckningar."
+msgstr "Personal angavs som Frånvarande på grund av saknade stämplingar."
 
 #: hrms/hr/doctype/employee_checkin/employee_checkin.py:222
 msgid "Employee was marked Absent for not meeting the working hours threshold."
-msgstr "Personal angavs Frånvarande för att inte ha uppfyllt arbetstid gräns."
+msgstr "Personal angavs Frånvarande för att inte ha uppfyllt arbetstid tröskel."
 
 #: hrms/hr/doctype/attendance_request/attendance_request.py:52
 msgid "Employee {0} already has an Attendance Request {1} that overlaps with this period"
@@ -4783,7 +4790,7 @@ msgstr "Personal {0} har redan skickat in ansökan {1} för Löne Period {2}"
 msgid "Employee {0} has already applied for Shift {1}: {2} that overlaps within this period"
 msgstr "Personal {0} har redan ansökt om Skift {1}: {2} som överlappar under denna period"
 
-#: hrms/hr/doctype/leave_application/leave_application.py:450
+#: hrms/hr/doctype/leave_application/leave_application.py:452
 msgid "Employee {0} has already applied for {1} between {2} and {3} : {4}"
 msgstr "Personal {0} har redan ansökt om {1} mellan {2} och {3}: {4}"
 
@@ -4811,7 +4818,7 @@ msgstr "Personal {0} halvdag {1}"
 msgid "Employee {0} relieved on {1} must be set as 'Left'"
 msgstr "Personal {0} som avskedades {1} måste anges som 'Slutat'"
 
-#: hrms/payroll/doctype/gratuity/gratuity.py:166
+#: hrms/payroll/doctype/gratuity/gratuity.py:163
 msgid "Employee: {0} have to complete minimum {1} years for gratuity"
 msgstr "Personal: {0} måste arbeta minst {1} år för dricks"
 
@@ -4895,21 +4902,21 @@ msgstr "Aktivera Automatisk Närvaro"
 #. Label of the enable_early_exit_marking (Check) field in DocType 'Shift Type'
 #: hrms/hr/doctype/shift_type/shift_type.json
 msgid "Enable Early Exit Marking"
-msgstr "Aktivera Tidig Utcheckning Val"
+msgstr "Aktivera Tidig Utstämpling Val"
 
 #. Label of the enable_late_entry_marking (Check) field in DocType 'Shift Type'
 #: hrms/hr/doctype/shift_type/shift_type.json
 msgid "Enable Late Entry Marking"
-msgstr "Aktivera Sen Incheckning Val"
+msgstr "Aktivera Sen Instämpling Val"
 
 #: frontend/src/views/AppSettings.vue:25
 msgid "Enable Push Notifications"
 msgstr "Aktivera Push-Notiser"
 
 #. Label of the enabled (Check) field in DocType 'Daily Work Summary Group'
-#. Label of the enabled (Check) field in DocType 'Shift Assignment Schedule'
+#. Label of the enabled (Check) field in DocType 'Shift Schedule Assignment'
 #: hrms/hr/doctype/daily_work_summary_group/daily_work_summary_group.json
-#: hrms/hr/doctype/shift_assignment_schedule/shift_assignment_schedule.json
+#: hrms/hr/doctype/shift_schedule_assignment/shift_schedule_assignment.json
 #: hrms/payroll/doctype/salary_slip/salary_slip.js:290
 msgid "Enabled"
 msgstr "Aktiverad"
@@ -4978,7 +4985,7 @@ msgstr "Slut"
 #: hrms/payroll/doctype/payroll_period/payroll_period.json
 #: hrms/payroll/doctype/payroll_period_date/payroll_period_date.json
 #: hrms/payroll/doctype/salary_slip/salary_slip.json
-#: hrms/payroll/report/salary_register/salary_register.py:167
+#: hrms/payroll/report/salary_register/salary_register.py:168
 msgid "End Date"
 msgstr "Slut Datum"
 
@@ -5027,7 +5034,7 @@ msgstr "Prestation Resultat"
 msgid "Enter the Standard Working Hours for a normal work day. These hours will be used in calculations of reports such as Employee Hours Utilization and Project Profitability analysis."
 msgstr "Ange Standard Arbetstid för arbetsdag. Dessa timmar kommer att användas i beräkningar av rapporter som t. ex. Personal Tid Användning och Projekt Resultat Analys."
 
-#: hrms/hr/doctype/leave_allocation/leave_allocation.js:201
+#: hrms/hr/doctype/leave_allocation/leave_allocation.js:222
 msgid "Enter the number of leaves you want to allocate for the period."
 msgstr "Ange antal ledigheter man får tilldela för period."
 
@@ -5134,21 +5141,18 @@ msgstr "Händelse Namn"
 msgid "Event Status"
 msgstr "Händelse Status"
 
-#. Option for the 'Frequency' (Select) field in DocType 'Shift Assignment
-#. Schedule'
-#: hrms/hr/doctype/shift_assignment_schedule/shift_assignment_schedule.json
+#. Option for the 'Frequency' (Select) field in DocType 'Shift Schedule'
+#: hrms/hr/doctype/shift_schedule/shift_schedule.json
 msgid "Every 2 Weeks"
 msgstr "Varannan Vecka"
 
-#. Option for the 'Frequency' (Select) field in DocType 'Shift Assignment
-#. Schedule'
-#: hrms/hr/doctype/shift_assignment_schedule/shift_assignment_schedule.json
+#. Option for the 'Frequency' (Select) field in DocType 'Shift Schedule'
+#: hrms/hr/doctype/shift_schedule/shift_schedule.json
 msgid "Every 3 Weeks"
 msgstr "Var 3:e Vecka"
 
-#. Option for the 'Frequency' (Select) field in DocType 'Shift Assignment
-#. Schedule'
-#: hrms/hr/doctype/shift_assignment_schedule/shift_assignment_schedule.json
+#. Option for the 'Frequency' (Select) field in DocType 'Shift Schedule'
+#: hrms/hr/doctype/shift_schedule/shift_schedule.json
 msgid "Every 4 Weeks"
 msgstr "Var 4:e Vecka"
 
@@ -5156,11 +5160,10 @@ msgstr "Var 4:e Vecka"
 #. DocType 'Shift Type'
 #: hrms/hr/doctype/shift_type/shift_type.json
 msgid "Every Valid Check-in and Check-out"
-msgstr "Varje Giltig Incheckning och Utcheckning"
+msgstr "Varje Giltig Stämpling"
 
-#. Option for the 'Frequency' (Select) field in DocType 'Shift Assignment
-#. Schedule'
-#: hrms/hr/doctype/shift_assignment_schedule/shift_assignment_schedule.json
+#. Option for the 'Frequency' (Select) field in DocType 'Shift Schedule'
+#: hrms/hr/doctype/shift_schedule/shift_schedule.json
 msgid "Every Week"
 msgstr "Varje Vecka"
 
@@ -5205,7 +5208,7 @@ msgstr "Exkluderade {0} ej Uttagbar Ledighet för {1}"
 #: hrms/payroll/doctype/salary_component/salary_component.json
 #: hrms/payroll/doctype/salary_detail/salary_detail.json
 msgid "Exempted from Income Tax"
-msgstr "Befriad från Inkomstskatt"
+msgstr "Undantagen från Inkomst Skatt"
 
 #. Label of a Card Break in the Tax & Benefits Workspace
 #: hrms/payroll/workspace/tax_&_benefits/tax_&_benefits.json
@@ -5368,7 +5371,7 @@ msgstr "Kostnad Godkännare"
 #. DocType 'HR Settings'
 #: hrms/hr/doctype/hr_settings/hr_settings.json
 msgid "Expense Approver Mandatory In Expense Claim"
-msgstr "Kostnad Godkännare erfodras för Kostnad Anspråk"
+msgstr "Kostnad Godkännare erfodras för Utlägg"
 
 #. Name of a DocType
 #. Label of a Link in the Expense Claims Workspace
@@ -5382,12 +5385,12 @@ msgstr "Kostnad Godkännare erfodras för Kostnad Anspråk"
 #: hrms/hr/workspace/expense_claims/expense_claims.json
 #: hrms/hr/workspace/hr/hr.json hrms/public/js/erpnext/delivery_trip.js:8
 msgid "Expense Claim"
-msgstr "Kostnad Anspråk"
+msgstr "Utlägg"
 
 #. Name of a DocType
 #: hrms/hr/doctype/expense_claim_account/expense_claim_account.json
 msgid "Expense Claim Account"
-msgstr "Kostnad Anspråk Konto"
+msgstr "Utlägg Konto"
 
 #. Name of a DocType
 #: hrms/hr/doctype/expense_claim_advance/expense_claim_advance.json
@@ -5397,11 +5400,11 @@ msgstr "Utlägg Förskott"
 #. Name of a DocType
 #: hrms/hr/doctype/expense_claim_detail/expense_claim_detail.json
 msgid "Expense Claim Detail"
-msgstr "Kostnad Anspråk Detalj"
+msgstr "Utlägg Detalj"
 
 #: frontend/src/components/ExpenseClaimSummary.vue:3
 msgid "Expense Claim Summary"
-msgstr "Kostnad Anspråk Sammanfattning"
+msgstr "Utlägg Sammanfattning"
 
 #. Label of the expense_type (Link) field in DocType 'Expense Claim Detail'
 #. Name of a DocType
@@ -5412,27 +5415,27 @@ msgstr "Kostnad Anspråk Sammanfattning"
 #: hrms/hr/doctype/expense_claim_type/expense_claim_type.json
 #: hrms/hr/workspace/expense_claims/expense_claims.json
 msgid "Expense Claim Type"
-msgstr "Kostnad Anspråk Typ"
+msgstr "Utlägg Typ"
 
 #: hrms/hr/doctype/vehicle_log/vehicle_log.py:48
 msgid "Expense Claim for Vehicle Log {0}"
-msgstr "Kostnad Anspråk för Fordon Logg {0}"
+msgstr "Utlägg för Fordon Logg {0}"
 
 #: hrms/hr/doctype/vehicle_log/vehicle_log.py:36
 msgid "Expense Claim {0} already exists for the Vehicle Log"
-msgstr "Kostnad Anspråk {0} finns redan för Fordon Logg"
+msgstr "Utlägg {0} finns redan för Fordon Logg"
 
 #. Name of a Workspace
 #. Label of a chart in the Expense Claims Workspace
 #: frontend/src/views/expense_claim/Dashboard.vue:2
 #: hrms/hr/workspace/expense_claims/expense_claims.json
 msgid "Expense Claims"
-msgstr "Kostnad Anspråk"
+msgstr "Utlägg"
 
 #. Label of a shortcut in the HR Workspace
 #: hrms/hr/workspace/hr/hr.json
 msgid "Expense Claims Dashboard"
-msgstr "Kostnad Anspråk Översikt Panel"
+msgstr "Utlägg Översikt Panel"
 
 #. Label of the expense_date (Date) field in DocType 'Expense Claim Detail'
 #: hrms/hr/doctype/expense_claim_detail/expense_claim_detail.json
@@ -5638,7 +5641,7 @@ msgstr "Återkoppling {0} har lagts till"
 #: hrms/hr/doctype/employee_checkin/employee_checkin.json
 #: hrms/hr/doctype/shift_location/shift_location.json
 msgid "Fetch Geolocation"
-msgstr "Hämta Geolokalisering"
+msgstr "Hämta Geografisk Position"
 
 #: hrms/hr/doctype/employee_checkin/employee_checkin.js:25
 msgid "Fetch Shift"
@@ -5734,7 +5737,7 @@ msgstr "Slutlig Resutat Formel"
 #. DocType 'Shift Type'
 #: hrms/hr/doctype/shift_type/shift_type.json
 msgid "First Check-in and Last Check-out"
-msgstr "Första Incheckning och Sista Utcheckning"
+msgstr "Första Instämpling och Sista Utstämpling"
 
 #. Option for the 'Allocate on Day' (Select) field in DocType 'Leave Type'
 #: hrms/hr/doctype/leave_type/leave_type.json
@@ -5746,7 +5749,7 @@ msgstr "Första Dag"
 msgid "First Name "
 msgstr "Förnamn"
 
-#: hrms/hr/report/vehicle_expenses/vehicle_expenses.js:15
+#: hrms/hr/report/vehicle_expenses/vehicle_expenses.js:29
 msgid "Fiscal Year"
 msgstr "Bokföringsår"
 
@@ -5831,7 +5834,7 @@ msgstr "Varannan Vecka"
 #. 'Gratuity Rule Slab'
 #: hrms/payroll/doctype/gratuity_rule_slab/gratuity_rule_slab.json
 msgid "Fraction of Applicable Earnings "
-msgstr "Bråkdel av Tillämpliga Intäkter"
+msgstr "Bråkdel av Tillämpliga Inkomster "
 
 #. Label of the daily_wages_fraction_for_half_day (Float) field in DocType
 #. 'Payroll Settings'
@@ -5853,9 +5856,9 @@ msgstr "Delkostnad"
 msgid "Frappe HR"
 msgstr "Frappe HR"
 
-#. Label of the frequency (Select) field in DocType 'Shift Assignment Schedule'
+#. Label of the frequency (Select) field in DocType 'Shift Schedule'
 #. Label of the frequency (Select) field in DocType 'Vehicle Service'
-#: hrms/hr/doctype/shift_assignment_schedule/shift_assignment_schedule.json
+#: hrms/hr/doctype/shift_schedule/shift_schedule.json
 #: hrms/hr/doctype/vehicle_service/vehicle_service.json
 msgid "Frequency"
 msgstr "Intervall"
@@ -5890,7 +5893,7 @@ msgstr "Från Belopp"
 #. Label of the from_date (Date) field in DocType 'Salary Structure Assignment'
 #. Label of the from_date (Date) field in DocType 'Salary Withholding'
 #. Label of the from_date (Date) field in DocType 'Salary Withholding Cycle'
-#: frontend/src/views/attendance/AttendanceRequestList.vue:24
+#: frontend/src/views/attendance/AttendanceRequestList.vue:27
 #: frontend/src/views/attendance/ShiftRequestList.vue:57
 #: hrms/hr/dashboard_chart_source/hiring_vs_attrition_count/hiring_vs_attrition_count.js:15
 #: hrms/hr/doctype/attendance_request/attendance_request.json
@@ -5899,7 +5902,7 @@ msgstr "Från Belopp"
 #: hrms/hr/doctype/leave_control_panel/leave_control_panel.json
 #: hrms/hr/doctype/leave_ledger_entry/leave_ledger_entry.json
 #: hrms/hr/doctype/leave_period/leave_period.json
-#: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.js:212
+#: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.js:235
 #: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.json
 #: hrms/hr/doctype/shift_request/shift_request.json
 #: hrms/hr/doctype/staffing_plan/staffing_plan.json
@@ -5911,7 +5914,7 @@ msgstr "Från Belopp"
 #: hrms/hr/report/leave_ledger/leave_ledger.js:8
 #: hrms/hr/report/leave_ledger/leave_ledger.py:47
 #: hrms/hr/report/shift_attendance/shift_attendance.js:8
-#: hrms/hr/report/vehicle_expenses/vehicle_expenses.js:24
+#: hrms/hr/report/vehicle_expenses/vehicle_expenses.js:37
 #: hrms/payroll/doctype/additional_salary/additional_salary.json
 #: hrms/payroll/doctype/bulk_salary_structure_assignment/bulk_salary_structure_assignment.json
 #: hrms/payroll/doctype/salary_structure_assignment/salary_structure_assignment.json
@@ -5930,11 +5933,11 @@ msgstr "Från Datum kan inte vara senare än Till Datum"
 msgid "From Date must come before To Date"
 msgstr "Från Datum kan inte vara senare än Till Datum"
 
-#: hrms/payroll/doctype/salary_structure_assignment/salary_structure_assignment.py:54
+#: hrms/payroll/doctype/salary_structure_assignment/salary_structure_assignment.py:57
 msgid "From Date {0} cannot be after employee's relieving Date {1}"
 msgstr "Från Datum {0} kan inte vara efter Personal avgång Datum {1}"
 
-#: hrms/payroll/doctype/salary_structure_assignment/salary_structure_assignment.py:46
+#: hrms/payroll/doctype/salary_structure_assignment/salary_structure_assignment.py:49
 msgid "From Date {0} cannot be before employee's joining Date {1}"
 msgstr "Från Datum {0} kan inte vara före Personal anställning Datum {1}"
 
@@ -6065,7 +6068,7 @@ msgstr "Bokföring Register"
 #: hrms/hr/doctype/employee_checkin/employee_checkin.json
 #: hrms/hr/doctype/shift_location/shift_location.json
 msgid "Geolocation"
-msgstr "Geolocation"
+msgstr "Geografisk Position"
 
 #: hrms/public/js/utils/index.js:186 hrms/public/js/utils/index.js:212
 msgid "Geolocation Error"
@@ -6188,7 +6191,7 @@ msgstr "Mål är uppdaterad"
 #: hrms/payroll/doctype/salary_structure_assignment/salary_structure_assignment.json
 #: hrms/setup.py:200
 msgid "Grade"
-msgstr "Utbildning"
+msgstr "Betyg"
 
 #. Label of the grand_total (Currency) field in DocType 'Expense Claim'
 #: hrms/hr/doctype/expense_claim/expense_claim.json
@@ -6203,24 +6206,24 @@ msgstr "Totalt Belopp"
 #: hrms/payroll/doctype/gratuity_rule/gratuity_rule.json
 #: hrms/payroll/doctype/gratuity_rule/gratuity_rule_dashboard.py:7
 msgid "Gratuity"
-msgstr "Dricks"
+msgstr "Belöning"
 
 #. Name of a DocType
 #: hrms/payroll/doctype/gratuity_applicable_component/gratuity_applicable_component.json
 msgid "Gratuity Applicable Component"
-msgstr "Dricks Tillämplig Komponent"
+msgstr "Belöning Tillämplig Komponent"
 
 #. Label of the gratuity_rule (Link) field in DocType 'Gratuity'
 #. Name of a DocType
 #: hrms/payroll/doctype/gratuity/gratuity.json
 #: hrms/payroll/doctype/gratuity_rule/gratuity_rule.json
 msgid "Gratuity Rule"
-msgstr "Dricks Regel"
+msgstr "Belöningsregel"
 
 #. Name of a DocType
 #: hrms/payroll/doctype/gratuity_rule_slab/gratuity_rule_slab.json
 msgid "Gratuity Rule Slab"
-msgstr "Dricks Regel Tabell"
+msgstr "Belöningsregel Tabell"
 
 #. Option for the 'Roster Color' (Select) field in DocType 'Shift Type'
 #: hrms/hr/doctype/shift_type/shift_type.json
@@ -6264,7 +6267,7 @@ msgstr "Klagomål Typ"
 #: hrms/payroll/doctype/salary_slip/salary_slip.json
 #: hrms/payroll/report/income_tax_deductions/income_tax_deductions.py:54
 #: hrms/payroll/report/salary_payments_via_ecs/salary_payments_via_ecs.py:42
-#: hrms/payroll/report/salary_register/salary_register.py:199
+#: hrms/payroll/report/salary_register/salary_register.py:206
 msgid "Gross Pay"
 msgstr "Brutto Lön"
 
@@ -6276,13 +6279,13 @@ msgstr "Brutto Lön (Bolag Valuta)"
 #. Label of the gross_year_to_date (Currency) field in DocType 'Salary Slip'
 #: hrms/payroll/doctype/salary_slip/salary_slip.json
 msgid "Gross Year To Date"
-msgstr "Brutto Lön Hittills"
+msgstr "Brutto Lön Hittills i År"
 
 #. Label of the base_gross_year_to_date (Currency) field in DocType 'Salary
 #. Slip'
 #: hrms/payroll/doctype/salary_slip/salary_slip.json
 msgid "Gross Year To Date(Company Currency)"
-msgstr "Brutto Lön Hittills (Bolag Valuta)"
+msgstr "Brutto Lön Hittills i År (Bolag Valuta)"
 
 #: hrms/hr/report/daily_work_summary_replies/daily_work_summary_replies.js:9
 msgid "Group"
@@ -6312,7 +6315,7 @@ msgstr "Personal & Lön"
 
 #: hrms/setup.py:65
 msgid "HR & Payroll Settings"
-msgstr "Personal & Lön Inställningar"
+msgstr "Personal & Löneinställningar"
 
 #. Label of a shortcut in the HR Workspace
 #: hrms/hr/workspace/hr/hr.json
@@ -6362,9 +6365,10 @@ msgstr "Personal Översikt Panel"
 #: hrms/hr/doctype/leave_policy_assignment/leave_policy_assignment.json
 #: hrms/hr/doctype/leave_type/leave_type.json
 #: hrms/hr/doctype/shift_assignment/shift_assignment.json
-#: hrms/hr/doctype/shift_assignment_schedule/shift_assignment_schedule.json
 #: hrms/hr/doctype/shift_location/shift_location.json
 #: hrms/hr/doctype/shift_request/shift_request.json
+#: hrms/hr/doctype/shift_schedule/shift_schedule.json
+#: hrms/hr/doctype/shift_schedule_assignment/shift_schedule_assignment.json
 #: hrms/hr/doctype/shift_type/shift_type.json hrms/hr/doctype/skill/skill.json
 #: hrms/hr/doctype/staffing_plan/staffing_plan.json
 #: hrms/hr/doctype/training_event/training_event.json
@@ -6445,10 +6449,11 @@ msgstr "Personal Inställningar"
 #: hrms/hr/doctype/leave_type/leave_type.json
 #: hrms/hr/doctype/offer_term/offer_term.json
 #: hrms/hr/doctype/shift_assignment/shift_assignment.json
-#: hrms/hr/doctype/shift_assignment_schedule/shift_assignment_schedule.json
 #: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.json
 #: hrms/hr/doctype/shift_location/shift_location.json
 #: hrms/hr/doctype/shift_request/shift_request.json
+#: hrms/hr/doctype/shift_schedule/shift_schedule.json
+#: hrms/hr/doctype/shift_schedule_assignment/shift_schedule_assignment.json
 #: hrms/hr/doctype/shift_type/shift_type.json
 #: hrms/hr/doctype/staffing_plan/staffing_plan.json
 #: hrms/hr/doctype/upload_attendance/upload_attendance.json
@@ -6502,7 +6507,7 @@ msgstr "Halv Dag"
 msgid "Half Day Date"
 msgstr "Halv Dag Datum"
 
-#: hrms/hr/doctype/compensatory_leave_request/compensatory_leave_request.py:26
+#: hrms/hr/doctype/compensatory_leave_request/compensatory_leave_request.py:27
 msgid "Half Day Date is mandatory"
 msgstr "Halv Dag Datum erfodras"
 
@@ -6510,7 +6515,7 @@ msgstr "Halv Dag Datum erfodras"
 msgid "Half Day Date should be between From Date and To Date"
 msgstr "Halv Dag Datum ska vara mellan Från Datum och Till Datum"
 
-#: hrms/hr/doctype/compensatory_leave_request/compensatory_leave_request.py:28
+#: hrms/hr/doctype/compensatory_leave_request/compensatory_leave_request.py:29
 msgid "Half Day Date should be in between Work From Date and Work End Date"
 msgstr "Halv Dag Datum ska vara mellan Arbete från datum och Arbete slut datum"
 
@@ -6594,7 +6599,7 @@ msgid "Hold"
 msgstr "Spärra"
 
 #: hrms/hr/doctype/attendance/attendance.py:280
-#: hrms/hr/doctype/leave_application/leave_application.py:1290
+#: hrms/hr/doctype/leave_application/leave_application.py:1292
 #: hrms/hr/report/employees_working_on_a_holiday/employees_working_on_a_holiday.py:46
 msgid "Holiday"
 msgstr "Helgdag"
@@ -6633,9 +6638,9 @@ msgstr "Helgdagar denna Månad"
 msgid "Holidays this Week."
 msgstr "Helgdagar denna Vecka"
 
-#: frontend/src/components/BottomTabs.vue:43
+#: frontend/src/components/BottomTabs.vue:43 hrms/www/jobs/index.py:13
 msgid "Home"
-msgstr "Start"
+msgstr "Hem"
 
 #. Label of the hour_rate (Currency) field in DocType 'Salary Slip'
 #. Label of the hour_rate (Currency) field in DocType 'Salary Structure'
@@ -6721,7 +6726,7 @@ msgstr "Om vald, kommer skatt befrielse deklaration att övervägas för beräkn
 #. DocType 'Shift Type'
 #: hrms/hr/doctype/shift_type/shift_type.json
 msgid "If enabled, auto attendance will be marked on holidays if Employee Checkins exist"
-msgstr "Om vald, kommer automatisk närvaro att anges på helgdagar om det finns incheckningar för personal"
+msgstr "Om vald, kommer automatisk närvaro att anges på helgdagar om det finns stämplingar för personal"
 
 #. Description of the 'Consider Marked Attendance on Holidays' (Check) field in
 #. DocType 'Payroll Settings'
@@ -6833,12 +6838,12 @@ msgid "In case of any error during this background process, the system will add 
 msgstr "I händelse av något fel under denna bakgrundsprocess kommer system att lägga till kommentar om fel på denna Lön Post och återgå till status Godkänd"
 
 #. Option for the 'Status' (Select) field in DocType 'Shift Assignment'
-#. Option for the 'Status' (Select) field in DocType 'Shift Assignment
-#. Schedule'
 #. Option for the 'Status' (Select) field in DocType 'Shift Assignment Tool'
+#. Option for the 'Shift Status' (Select) field in DocType 'Shift Schedule
+#. Assignment'
 #: hrms/hr/doctype/shift_assignment/shift_assignment.json
-#: hrms/hr/doctype/shift_assignment_schedule/shift_assignment_schedule.json
 #: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.json
+#: hrms/hr/doctype/shift_schedule_assignment/shift_schedule_assignment.json
 #: hrms/hr/report/employee_leave_balance/employee_leave_balance.js:45
 #: hrms/hr/report/employee_leave_balance_summary/employee_leave_balance_summary.js:41
 #: hrms/hr/report/leave_ledger/leave_ledger.js:39
@@ -6916,7 +6921,7 @@ msgstr "Inkomst Skatt Beräkning"
 #. 'Salary Slip'
 #: hrms/payroll/doctype/salary_slip/salary_slip.json
 msgid "Income Tax Deducted Till Date"
-msgstr "Inkomst Skatt Avdraged Hitills"
+msgstr "Inkomstskatt Avdragen till Datum"
 
 #. Name of a report
 #. Label of a Link in the Salary Payout Workspace
@@ -6949,7 +6954,7 @@ msgstr "Inkomst Skatt Tabell"
 msgid "Income Tax Slab Other Charges"
 msgstr "Inkomst Skatt Tabell Övriga Avgifter"
 
-#: hrms/payroll/doctype/salary_structure_assignment/salary_structure_assignment.py:74
+#: hrms/payroll/doctype/salary_structure_assignment/salary_structure_assignment.py:77
 msgid "Income Tax Slab is mandatory since the Salary Structure {0} has a tax component {1}"
 msgstr "Inkomst Skatt Tabell erfordras eftersom Löneart {0} har skattkomponent {1}"
 
@@ -6995,11 +7000,11 @@ msgstr "Installera"
 msgid "Install Frappe HR"
 msgstr "Installera Frappe HR"
 
-#: hrms/hr/doctype/leave_application/leave_application.py:409
+#: hrms/hr/doctype/leave_application/leave_application.py:411
 msgid "Insufficient Balance"
 msgstr "Otillräckligt Saldo"
 
-#: hrms/hr/doctype/leave_application/leave_application.py:407
+#: hrms/hr/doctype/leave_application/leave_application.py:409
 msgid "Insufficient leave balance for Leave Type {0}"
 msgstr "Otillräckligt Ledighet Saldo för Ledighet Typ {0}"
 
@@ -7197,9 +7202,25 @@ msgstr "Introduktion"
 msgid "Invalid"
 msgstr "Ogiltig"
 
+#: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.py:183
+msgid "Invalid Action"
+msgstr "Ogiltig åtgärd"
+
 #: hrms/payroll/doctype/additional_salary/additional_salary.py:164
 msgid "Invalid Additional Salary"
 msgstr "Ogiltig Extra Lön"
+
+#: hrms/payroll/doctype/salary_structure_assignment/salary_structure_assignment.py:142
+msgid "Invalid Cost Center"
+msgstr "Ogiltig Resultat Enhet"
+
+#: hrms/hr/doctype/leave_allocation/leave_allocation.py:323
+msgid "Invalid Dates"
+msgstr "Ogiltiga Datum"
+
+#: hrms/hr/doctype/leave_ledger_entry/leave_ledger_entry.py:25
+msgid "Invalid Leave Ledger Entry"
+msgstr "Ogiltig Ledighet Register Post"
 
 #: hrms/payroll/doctype/salary_structure/salary_structure.py:319
 msgid "Invalid Payroll Payable Account. The account currency must be {0} or {1}"
@@ -7484,7 +7505,7 @@ msgstr "Jobb Annons {0} är kopplad till Jobb Erbjudande {1}"
 #. Label of the job_title (Data) field in DocType 'Job Opening'
 #: hrms/hr/doctype/job_opening/job_opening.json
 msgid "Job Title"
-msgstr "Jobb Titel"
+msgstr "Jobb Benämning"
 
 #. Description of the 'Description' (Text Editor) field in DocType 'Job
 #. Opening'
@@ -7598,7 +7619,7 @@ msgstr "Sista Dag"
 #. Type'
 #: hrms/hr/doctype/shift_type/shift_type.json
 msgid "Last Known Successful Sync of Employee Checkin. Reset this only if you are sure that all Logs are synced from all the locations. Please don't modify this if you are unsure."
-msgstr "Senast känd lyckad synkronisering av Personal Incheckning. Återställ detta endast om du är säker på att alla loggar är synkroniserade från alla platser. Ändra inte detta om du är osäker"
+msgstr "Senast känd lyckad synkronisering av Personal Stämplingar. Återställ detta endast om du är säker på att alla loggar är synkroniserade från alla platser. Ändra inte detta om du är osäker."
 
 #. Label of the last_name (Data) field in DocType 'Employee Referral'
 #: hrms/hr/doctype/employee_referral/employee_referral.json
@@ -7613,7 +7634,7 @@ msgstr "Senaste Odometer Värde "
 #. Label of the last_sync_of_checkin (Datetime) field in DocType 'Shift Type'
 #: hrms/hr/doctype/shift_type/shift_type.json
 msgid "Last Sync of Checkin"
-msgstr "Senaste Synkronisering av Incheckning"
+msgstr "Senaste Synkronisering av Stämplingar"
 
 #: frontend/src/components/CheckInPanel.vue:9
 msgid "Last {0} was at {1}"
@@ -7629,13 +7650,13 @@ msgstr "Sena Ankomster"
 #: hrms/hr/doctype/employee_attendance_tool/employee_attendance_tool.json
 #: hrms/hr/report/shift_attendance/shift_attendance.js:48
 msgid "Late Entry"
-msgstr "Sen Incheckning"
+msgstr "Sen Instämpling"
 
 #. Label of the grace_period_settings_auto_attendance_section (Section Break)
 #. field in DocType 'Shift Type'
 #: hrms/hr/doctype/shift_type/shift_type.json
 msgid "Late Entry & Early Exit Settings for Auto Attendance"
-msgstr "Sen Incheckning & Tidig Utcheckning för Automatiskt Närvaro"
+msgstr "Sen Instämpling & Tidig Utstämpling för Automatiskt Närvaro"
 
 #: hrms/hr/report/shift_attendance/shift_attendance.py:85
 msgid "Late Entry By"
@@ -7644,7 +7665,7 @@ msgstr "Sen Ankomst Av"
 #. Label of the late_entry_grace_period (Int) field in DocType 'Shift Type'
 #: hrms/hr/doctype/shift_type/shift_type.json
 msgid "Late Entry Grace Period"
-msgstr "Sen Incheckning Respit Period"
+msgstr "Sen Instämpling Anstånd Period"
 
 #. Label of the latitude (Float) field in DocType 'Employee Checkin'
 #. Label of the latitude (Float) field in DocType 'Shift Location'
@@ -7655,7 +7676,7 @@ msgstr "Latitud"
 
 #: hrms/hr/doctype/employee_checkin/employee_checkin.py:83
 msgid "Latitude and longitude values are required for checking in."
-msgstr "Latitud och longitud värde erfordras för check in."
+msgstr "Latitud och longitud värde erfordras för att stämpla."
 
 #: frontend/src/components/CheckInPanel.vue:132
 msgid "Latitude: {0}°"
@@ -7699,7 +7720,7 @@ msgstr "Ledighet Tilldelningar"
 msgid "Leave Application"
 msgstr "Ledighet Ansökan"
 
-#: hrms/hr/doctype/leave_application/leave_application.py:714
+#: hrms/hr/doctype/leave_application/leave_application.py:716
 msgid "Leave Application period cannot be across two non-consecutive leave allocations {0} and {1}."
 msgstr "Ledighet Ansökan Period kan inte vara över två ej efterföljande ledighet tilldelningar {0} och {1}."
 
@@ -7777,7 +7798,7 @@ msgstr "Ledighet Spärr Lista Datum"
 msgid "Leave Block List Name"
 msgstr "Ledighet Spärr Lista Namn"
 
-#: hrms/hr/doctype/leave_application/leave_application.py:1266
+#: hrms/hr/doctype/leave_application/leave_application.py:1268
 msgid "Leave Blocked"
 msgstr "Ledighet Spärrad"
 
@@ -7820,6 +7841,10 @@ msgstr "Ledighet Register"
 #: hrms/hr/report/leave_ledger/leave_ledger.py:21
 msgid "Leave Ledger Entry"
 msgstr "Ledighet Register Post"
+
+#: hrms/hr/doctype/leave_ledger_entry/leave_ledger_entry.py:18
+msgid "Leave Ledger Entry's To date needs to be after From date. Currently, From Date is {0} and To Date is {1}"
+msgstr "Ledighet Register Post Till datum måste vara efter Från datum. För närvarande Från Datum är {0} och Till Datum är {1}"
 
 #. Label of the leave_period (Link) field in DocType 'Leave Allocation'
 #. Option for the 'Dates Based On' (Select) field in DocType 'Leave Control
@@ -7883,7 +7908,7 @@ msgstr "Ledighet Regel: {0} redan tilldelad för personal {1} för period {2} ti
 
 #: hrms/setup.py:434 hrms/setup.py:436 hrms/setup.py:488
 msgid "Leave Status Notification"
-msgstr "Ledighet Status Meddelande"
+msgstr "Ledighet Status Avisering"
 
 #. Label of the leave_status_notification_template (Link) field in DocType 'HR
 #. Settings'
@@ -7935,7 +7960,7 @@ msgstr "Ledighet Typ kan antingen vara kompenserande eller intjänad ledighet."
 msgid "Leave Type can either be without pay or partial pay"
 msgstr "Ledighet Typ kan antingen vara obetald eller delbetald"
 
-#: hrms/hr/doctype/compensatory_leave_request/compensatory_leave_request.py:33
+#: hrms/hr/doctype/compensatory_leave_request/compensatory_leave_request.py:34
 msgid "Leave Type is mandatory"
 msgstr "Ledighet Typ erfodras"
 
@@ -7943,7 +7968,7 @@ msgstr "Ledighet Typ erfodras"
 msgid "Leave Type {0} cannot be allocated since it is leave without pay"
 msgstr "Ledighet Typ {0} kan inte tilldelas eftersom det är obetald ledighet"
 
-#: hrms/hr/doctype/leave_allocation/leave_allocation.py:466
+#: hrms/hr/doctype/leave_allocation/leave_allocation.py:479
 msgid "Leave Type {0} cannot be carry-forwarded"
 msgstr "Ledighet Typ {0} kan inte vidarebefordras"
 
@@ -7953,7 +7978,7 @@ msgstr "Ledighet Typ {0} är inte uttagbar"
 
 #. Label of the leave_without_pay (Float) field in DocType 'Salary Slip'
 #: hrms/payroll/doctype/salary_slip/salary_slip.json
-#: hrms/payroll/report/salary_register/salary_register.py:173 hrms/setup.py:374
+#: hrms/payroll/report/salary_register/salary_register.py:174 hrms/setup.py:374
 #: hrms/setup.py:375
 msgid "Leave Without Pay"
 msgstr "Obetald Ledighet"
@@ -7962,7 +7987,7 @@ msgstr "Obetald Ledighet"
 msgid "Leave Without Pay does not match with approved {} records"
 msgstr "Obetald Ledighet stämmer inte med godkända {} poster"
 
-#: hrms/hr/doctype/leave_ledger_entry/leave_ledger_entry.py:41
+#: hrms/hr/doctype/leave_ledger_entry/leave_ledger_entry.py:54
 msgid "Leave allocation {0} is linked with the Leave Application {1}"
 msgstr "Ledighet Tilldelning {0} är länkad till Ledighet Ansökan {1}"
 
@@ -7988,7 +8013,7 @@ msgstr "Ledighet kan inte tilldelas före {0}, eftersom Ledighet Saldo redan har
 msgid "Leave cannot be applied/cancelled before {0}, as leave balance has already been carry-forwarded in the future leave allocation record {1}"
 msgstr "Ledighet inte kan tillämpas/annulleras före {0}, eftersom Ledighet Saldo redan är vidarebefordrad framtida ledighet tilldelning poster {1}"
 
-#: hrms/hr/doctype/leave_application/leave_application.py:477
+#: hrms/hr/doctype/leave_application/leave_application.py:479
 msgid "Leave of type {0} cannot be longer than {1}."
 msgstr "Ledighet av typ {0} får inte vara längre än {1}."
 
@@ -8067,7 +8092,7 @@ msgstr "Slutat"
 #: hrms/payroll/doctype/salary_slip/salary_slip.json
 #: hrms/payroll/doctype/salary_structure/salary_structure.json
 msgid "Letter Head"
-msgstr "Sidhuvud"
+msgstr "Brevhuvud"
 
 #. Label of the level (Select) field in DocType 'Training Event'
 #: hrms/hr/doctype/training_event/training_event.json
@@ -8113,7 +8138,7 @@ msgstr "Lån Konto"
 msgid "Loan Product"
 msgstr "Lån Artikel"
 
-#: hrms/payroll/report/salary_register/salary_register.py:221 hrms/setup.py:764
+#: hrms/payroll/report/salary_register/salary_register.py:228 hrms/setup.py:764
 msgid "Loan Repayment"
 msgstr "Lån Återbetalning"
 
@@ -8162,14 +8187,14 @@ msgid "Log Out"
 msgstr "Logga ut"
 
 #. Label of the log_type (Select) field in DocType 'Employee Checkin'
-#: frontend/src/views/attendance/EmployeeCheckinList.vue:22
+#: frontend/src/views/attendance/EmployeeCheckinList.vue:25
 #: hrms/hr/doctype/employee_checkin/employee_checkin.json
 msgid "Log Type"
 msgstr "Typ"
 
 #: hrms/hr/doctype/employee_checkin/employee_checkin.py:67
 msgid "Log Type is required for check-ins falling in the shift: {0}."
-msgstr "Logg Typ erfodras för In/Utcheckningar som infaller under skift: {0}."
+msgstr "Logg Typ erfodras för Stämplingar som infaller under skift: {0}."
 
 #: frontend/src/views/Login.vue:34
 msgid "Login"
@@ -8222,8 +8247,8 @@ msgid "Mandatory"
 msgstr "Erfodrad"
 
 #: hrms/public/js/utils/index.js:37
-msgid "Mandatory fields required for this action"
-msgstr "Erfordrade fält krävs för denna åtgärd"
+msgid "Mandatory fields required for this action:"
+msgstr "Erfordrade fält krävs för denna åtgärd:"
 
 #: hrms/payroll/doctype/payroll_entry/payroll_entry.js:192
 msgid "Mandatory fields required in {0}"
@@ -8250,7 +8275,7 @@ msgstr "Mars"
 #: hrms/hr/doctype/attendance/attendance_list.js:25
 #: hrms/hr/doctype/attendance/attendance_list.js:128
 #: hrms/hr/doctype/employee_attendance_tool/employee_attendance_tool.js:174
-#: hrms/hr/doctype/shift_type/shift_type.js:22
+#: hrms/hr/doctype/shift_type/shift_type.js:13
 msgid "Mark Attendance"
 msgstr "Hämta Närvaro"
 
@@ -8287,7 +8312,7 @@ msgstr "Ange närvaro som {0} för {1} på valda datum?"
 #. Type'
 #: hrms/hr/doctype/shift_type/shift_type.json
 msgid "Mark attendance based on 'Employee Checkin' for Employees assigned to this shift."
-msgstr "Ange närvaro baserat på 'Personal In/Utcheckning' för Personal som tilldelats detta skift."
+msgstr "Ange närvaro baserat på 'Personal Stämplingar' för Personal som tilldelats detta skift."
 
 #: hrms/hr/doctype/goal/goal_tree.js:262
 msgid "Mark {0} as Completed?"
@@ -8389,7 +8414,7 @@ msgstr "Maximum Vidarebefodrad Ledighet"
 msgid "Maximum Consecutive Leaves Allowed"
 msgstr "Maximum Ledighet Tillåten i Följd"
 
-#: hrms/hr/doctype/leave_application/leave_application.py:487
+#: hrms/hr/doctype/leave_application/leave_application.py:489
 msgid "Maximum Consecutive Leaves Exceeded"
 msgstr "Maximum Antal Konsekutiv Ledighet Överskriden"
 
@@ -8412,8 +8437,8 @@ msgstr "Maximum Undantag Belopp"
 
 #. Label of the max_leaves_allowed (Float) field in DocType 'Leave Type'
 #: hrms/hr/doctype/leave_type/leave_type.json
-msgid "Maximum Leave Allocation Allowed"
-msgstr "Maximum Tillåtet Ledighet Tilldelning"
+msgid "Maximum Leave Allocation Allowed per Leave Period"
+msgstr "Maximalt tillåtna Ledighet Tilldelning per Ledighetsperiod"
 
 #: hrms/payroll/doctype/employee_benefit_claim/employee_benefit_claim.py:65
 msgid "Maximum amount eligible for the component {0} exceeds {1}"
@@ -8488,6 +8513,12 @@ msgstr "Minimum Beskattningsbar Inkomst"
 msgid "Minimum Year for Gratuity"
 msgstr "Minimum antal år för Dricks"
 
+#. Description of the 'Allow Leave Application After (Working Days)' (Int)
+#. field in DocType 'Leave Type'
+#: hrms/hr/doctype/leave_type/leave_type.json
+msgid "Minimum working days required since Date of Joining to apply for this leave"
+msgstr "Minimum antal arbetsdagar som erfordras sedan tillträde för att ansöka om denna ledighet"
+
 #: hrms/hr/utils.py:822
 msgid "Missing Field"
 msgstr "Fält Värde saknas"
@@ -8497,11 +8528,11 @@ msgstr "Fält Värde saknas"
 msgid "Missing Fields"
 msgstr "Saknade Fält"
 
-#: hrms/payroll/doctype/salary_structure_assignment/salary_structure_assignment.py:80
+#: hrms/payroll/doctype/salary_structure_assignment/salary_structure_assignment.py:83
 msgid "Missing Mandatory Field"
 msgstr "Erfordrad fält saknas"
 
-#: hrms/payroll/doctype/salary_structure_assignment/salary_structure_assignment.py:150
+#: hrms/payroll/doctype/salary_structure_assignment/salary_structure_assignment.py:167
 msgid "Missing Opening Entries"
 msgstr "Öppning poster saknas"
 
@@ -8621,7 +8652,7 @@ msgstr "Flera Extra Löner med överskrivning egenskap finns för lön komponent
 msgid "Multiple Shift Assignments"
 msgstr "Flera Skift Tilldelningar"
 
-#: hrms/www/jobs/index.py:12
+#: hrms/www/jobs/index.py:15
 msgid "My Account"
 msgstr "Mitt Konto"
 
@@ -8674,7 +8705,7 @@ msgstr "Nummer Serie"
 #: hrms/payroll/doctype/salary_slip/salary_slip.json
 #: hrms/payroll/doctype/salary_structure/salary_structure.json
 #: hrms/payroll/report/salary_payments_via_ecs/salary_payments_via_ecs.py:49
-#: hrms/payroll/report/salary_register/salary_register.py:235
+#: hrms/payroll/report/salary_register/salary_register.py:242
 msgid "Net Pay"
 msgstr "Netto Lön"
 
@@ -8746,8 +8777,8 @@ msgid "New Leaves Allocated (In Days)"
 msgstr "Nya Ledigheter Tilldelade (i Dagar)"
 
 #. Description of the 'Create Shifts After' (Date) field in DocType 'Shift
-#. Assignment Schedule'
-#: hrms/hr/doctype/shift_assignment_schedule/shift_assignment_schedule.json
+#. Schedule Assignment'
+#: hrms/hr/doctype/shift_schedule_assignment/shift_schedule_assignment.json
 msgid "New shift assignments will be created after this date."
 msgstr "Nya skift tilldelningar kommer att skapas efter detta datum."
 
@@ -8784,7 +8815,7 @@ msgstr "Ingen Personal Vald"
 msgid "No Interview has been scheduled."
 msgstr "Ingen intervju är schemalagd."
 
-#: hrms/hr/doctype/compensatory_leave_request/compensatory_leave_request.py:104
+#: hrms/hr/doctype/compensatory_leave_request/compensatory_leave_request.py:105
 msgid "No Leave Period Found"
 msgstr "Ingen Ledighet Period Hittades"
 
@@ -8792,7 +8823,7 @@ msgstr "Ingen Ledighet Period Hittades"
 msgid "No Leaves Allocated to Employee: {0} for Leave Type: {1}"
 msgstr "Inga Ledigheter tilldelade Personal: {0} för Ledighet Typ: {1}"
 
-#: hrms/payroll/doctype/gratuity/gratuity.py:269
+#: hrms/payroll/doctype/gratuity/gratuity.py:266
 msgid "No Salary Slip found for Employee: {0}"
 msgstr "Ingen Lönespecifikation hittades för: {0}"
 
@@ -8808,7 +8839,7 @@ msgstr "Ingen Löneart tilldelad {0} på angiven datum {1}"
 msgid "No Salary Structures"
 msgstr "Inga Lönearter"
 
-#: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.py:190
+#: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.py:255
 msgid "No Shift Requests Selected"
 msgstr "Inga Skift Begäran valda"
 
@@ -8828,23 +8859,23 @@ msgstr "Ingen aktiv eller standard löneart hittades för {0} för angivna datum
 msgid "No additional expenses has been added"
 msgstr "Inga extra kostnader har lagts till"
 
-#: hrms/payroll/doctype/gratuity/gratuity.py:285
+#: hrms/payroll/doctype/gratuity/gratuity.py:282
 msgid "No applicable Earning component found in last salary slip for Gratuity Rule: {0}"
 msgstr "Ingen tillämplig komponent hittades i senaste lönespecifikation för Dricks Regel: {0}"
 
-#: hrms/payroll/doctype/gratuity/gratuity.py:298
+#: hrms/payroll/doctype/gratuity/gratuity.py:295
 msgid "No applicable Earning components found for Gratuity Rule: {0}"
 msgstr "Ingen tillämplig inkomst komponent hittades för Dricks Regel: {0}"
 
-#: hrms/payroll/doctype/gratuity/gratuity.py:258
+#: hrms/payroll/doctype/gratuity/gratuity.py:255
 msgid "No applicable slab found for the calculation of gratuity amount as per the Gratuity Rule: {0}"
 msgstr "Ingen tillämplig tabell hittades för beräkning av Dricks Belopp i Dricks Regel: {0}"
 
-#: hrms/hr/report/monthly_attendance_sheet/monthly_attendance_sheet.py:49
+#: hrms/hr/report/monthly_attendance_sheet/monthly_attendance_sheet.py:52
 msgid "No attendance records found for this criteria."
 msgstr "Inga närvaro poster funna för dessa kriterier."
 
-#: hrms/hr/report/monthly_attendance_sheet/monthly_attendance_sheet.py:42
+#: hrms/hr/report/monthly_attendance_sheet/monthly_attendance_sheet.py:45
 msgid "No attendance records found."
 msgstr "Inga närvaro poster funna."
 
@@ -9154,7 +9185,7 @@ msgstr "Endast Skift förfågan med status 'Godkänd' och 'Avvisad' kan skickas 
 msgid "Only Tax Impact (Cannot Claim But Part of Taxable Income)"
 msgstr "Endast Skatt Påverkan (Kan Inte Kräva men Del av Skatt Pliktig Inkomst)"
 
-#: hrms/hr/doctype/leave_ledger_entry/leave_ledger_entry.py:20
+#: hrms/hr/doctype/leave_ledger_entry/leave_ledger_entry.py:33
 msgid "Only expired allocation can be cancelled"
 msgstr "Endast Förfallen Tilldelning kan annulleras"
 
@@ -9213,7 +9244,7 @@ msgstr "Öppning Saldo"
 msgid "Opening closed."
 msgstr "Jobb Erbjudande Stängd"
 
-#: hrms/hr/doctype/leave_application/leave_application.py:567
+#: hrms/hr/doctype/leave_application/leave_application.py:569
 msgid "Optional Holiday List not set for leave period {0}"
 msgstr "Valfri helg lista inte angiven för ledighet period {0}"
 
@@ -9488,7 +9519,7 @@ msgstr "Betalning Datum"
 #. Label of the payment_days (Float) field in DocType 'Salary Slip'
 #. Label of the payment_days_tab (Tab Break) field in DocType 'Salary Slip'
 #: hrms/payroll/doctype/salary_slip/salary_slip.json
-#: hrms/payroll/report/salary_register/salary_register.py:179
+#: hrms/payroll/report/salary_register/salary_register.py:186
 msgid "Payment Days"
 msgstr "Lönedagar"
 
@@ -9504,7 +9535,7 @@ msgstr "Lönedagar beroende av"
 
 #: hrms/payroll/doctype/salary_slip/salary_slip.js:287
 msgid "Payment Days calculations are based on these Payroll Settings"
-msgstr "Lönedagar beräkning baseras på dessa Lön Inställningar"
+msgstr "Lönedagar beräkning baseras på dessa Löneinställningar"
 
 #. Label of a Link in the Expense Claims Workspace
 #. Label of the account (Section Break) field in DocType 'Payroll Entry'
@@ -9547,7 +9578,7 @@ msgstr "Lön Resultat Enhet"
 #. Structure Assignment'
 #: hrms/payroll/doctype/salary_structure_assignment/salary_structure_assignment.json
 msgid "Payroll Cost Centers"
-msgstr "Löne Resultat Enhet"
+msgstr "Lön Resultat Enhet"
 
 #. Label of the payroll_date (Date) field in DocType 'Additional Salary'
 #. Label of the payroll_date (Date) field in DocType 'Employee Incentive'
@@ -9578,7 +9609,7 @@ msgstr "Lönepost"
 
 #: hrms/payroll/doctype/payroll_entry/payroll_entry.py:121
 msgid "Payroll Entry cancellation is queued. It may take a few minutes"
-msgstr "Löne Post Avbokning i kö. Det kan ta några minuter"
+msgstr "Lönepost annullering i kö. Det kan ta några minuter"
 
 #. Label of the payroll_frequency (Select) field in DocType 'Payroll Entry'
 #. Label of the payroll_frequency (Select) field in DocType 'Salary Slip'
@@ -9590,7 +9621,7 @@ msgstr "Löne Post Avbokning i kö. Det kan ta några minuter"
 #: hrms/payroll/doctype/salary_structure/salary_structure.json
 #: hrms/payroll/doctype/salary_withholding/salary_withholding.json
 msgid "Payroll Frequency"
-msgstr "Lön Intervall"
+msgstr "Löneintervall"
 
 #. Label of the section_break_gsts (Section Break) field in DocType 'Salary
 #. Slip'
@@ -9604,9 +9635,9 @@ msgstr "Lön Nummer"
 
 #: hrms/overrides/company.py:106
 #: hrms/patches/post_install/updates_for_multi_currency_payroll.py:65
-#: hrms/payroll/doctype/salary_structure_assignment/salary_structure_assignment.py:103
+#: hrms/payroll/doctype/salary_structure_assignment/salary_structure_assignment.py:106
 msgid "Payroll Payable"
-msgstr "Lön Skuld"
+msgstr "Löneutbetalning"
 
 #. Label of the payroll_payable_account (Link) field in DocType 'Bulk Salary
 #. Structure Assignment'
@@ -9618,7 +9649,7 @@ msgstr "Lön Skuld"
 #: hrms/payroll/doctype/salary_structure_assignment/salary_structure_assignment.json
 #: hrms/setup.py:837
 msgid "Payroll Payable Account"
-msgstr "Lön Skuld Konto"
+msgstr "Löneutbetalning Konto"
 
 #. Label of the payroll_period (Link) field in DocType 'Employee Benefit
 #. Application'
@@ -9655,7 +9686,7 @@ msgstr "Löneperioder"
 #. Label of a Card Break in the Salary Payout Workspace
 #: hrms/payroll/workspace/salary_payout/salary_payout.json
 msgid "Payroll Reports"
-msgstr "Lön Rapporter"
+msgstr "Lönerapporter"
 
 #. Name of a DocType
 #. Label of a Link in the Payroll Workspace
@@ -9765,7 +9796,7 @@ msgstr "Rosa"
 msgid "Planned number of Positions"
 msgstr "Planerad antal Positioner"
 
-#: hrms/hr/doctype/shift_type/shift_type.js:27
+#: hrms/hr/doctype/shift_type/shift_type.js:16
 msgid "Please Enable Auto Attendance and complete the setup first."
 msgstr "Aktivera Automatisk Närvaro och slutför installation."
 
@@ -9779,7 +9810,7 @@ msgstr "Lägg till återstående förmåner {0} till någon av befintliga kompon
 
 #: hrms/payroll/doctype/employee_benefit_application/employee_benefit_application.py:107
 msgid "Please add the remaining benefits {0} to the application as pro-rata component"
-msgstr "Lägg till återstående förmåner {0} till applikation som proportionell komponent"
+msgstr "Lägg till återstående förmåner {0} till ansökan som proportionell komponent"
 
 #: hrms/payroll/doctype/salary_slip/salary_slip.py:762
 msgid "Please assign a Salary Structure for Employee {0} applicable from or before {1} first"
@@ -9789,7 +9820,7 @@ msgstr "Tilldela först Löneart för {0} som gäller från eller före {1}"
 msgid "Please confirm once you have completed your training"
 msgstr "Bekräfta när du har slutfört din utbildning"
 
-#: hrms/hr/doctype/compensatory_leave_request/compensatory_leave_request.py:100
+#: hrms/hr/doctype/compensatory_leave_request/compensatory_leave_request.py:101
 msgid "Please create a new {0} for the date {1} first."
 msgstr "Skapa ny {0} för datum {1} först."
 
@@ -9824,13 +9855,17 @@ msgstr "Välj Personal"
 
 #: hrms/payroll/doctype/salary_withholding/salary_withholding.js:25
 msgid "Please select From Date and Payroll Frequency first"
-msgstr "Välj Från Datum och Lön Intervall först"
+msgstr "Välj Från Datum och Löneintervall först"
 
 #: hrms/payroll/doctype/bulk_salary_structure_assignment/bulk_salary_structure_assignment.js:113
 msgid "Please select From Date."
 msgstr "Välj Från Datum."
 
-#: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.js:144
+#: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.js:167
+msgid "Please select Shift Schedule and assignment date(s)."
+msgstr "Välj Skift Schema och Tilldelning Datum."
+
+#: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.js:160
 msgid "Please select Shift Type and assignment date(s)."
 msgstr "Vänligen välj Skift Typ och Tilldelning Datum."
 
@@ -9859,7 +9894,7 @@ msgstr "Välj Datum"
 msgid "Please select an Applicant"
 msgstr "Välj Sökande"
 
-#: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.py:189
+#: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.py:254
 msgid "Please select at least one Shift Request to perform this action."
 msgstr "Välj minst en Skift Begäran för att utföra denna åtgärd."
 
@@ -9870,6 +9905,10 @@ msgstr "Välj minst en i personal för att utföra denna åtgärd."
 #: hrms/public/js/utils/index.js:47
 msgid "Please select at least one row to perform this action."
 msgstr "Välj minst en rad för att utföra denna åtgärd."
+
+#: hrms/hr/report/monthly_attendance_sheet/monthly_attendance_sheet.py:36
+msgid "Please select company."
+msgstr "Välj Bolag."
 
 #: hrms/hr/doctype/employee_advance/employee_advance.js:16
 msgid "Please select employee first"
@@ -9905,7 +9944,7 @@ msgstr "Välj {0}"
 
 #: hrms/payroll/doctype/salary_structure/salary_structure.py:311
 msgid "Please set \"Default Payroll Payable Account\" in Company Defaults"
-msgstr "Ange \"Lön Skuld Konto\" i Bolag Inställningar"
+msgstr "Ange \"Standard Löneutbetalning Konto\" i Bolag Inställningar"
 
 #: hrms/regional/india/utils.py:18
 msgid "Please set Basic and HRA component in Company {0}"
@@ -9917,9 +9956,9 @@ msgstr "Ange Inkomst Komponent för Ledighet Typ: {0}."
 
 #: hrms/payroll/doctype/salary_slip/salary_slip.py:453
 msgid "Please set Payroll based on in Payroll settings"
-msgstr "Ange Lön baserad på Lön Inställningar"
+msgstr "Ange Lön baserad på Löneinställningar"
 
-#: hrms/payroll/doctype/gratuity/gratuity.py:178
+#: hrms/payroll/doctype/gratuity/gratuity.py:175
 msgid "Please set Relieving Date for employee: {0}"
 msgstr "Ange avgång datum för: {0}"
 
@@ -9932,11 +9971,11 @@ msgstr "Ange Standard Kassa Konto i Bolag Inställningar"
 msgid "Please set account in Salary Component {0}"
 msgstr "Ange konto i Lönekomponent {0}"
 
-#: hrms/hr/doctype/leave_application/leave_application.py:622
+#: hrms/hr/doctype/leave_application/leave_application.py:624
 msgid "Please set default template for Leave Approval Notification in HR Settings."
 msgstr "Ange Standard Mall för Ledighet Godkännande Avisering i Personal Inställningar."
 
-#: hrms/hr/doctype/leave_application/leave_application.py:597
+#: hrms/hr/doctype/leave_application/leave_application.py:599
 msgid "Please set default template for Leave Status Notification in HR Settings."
 msgstr "Ange Standard Mall för Ledighet Status Avisering i Personal Inställningar."
 
@@ -9973,8 +10012,8 @@ msgstr "Ange {0} för Personal: {1}"
 msgid "Please set {0} for the Employee: {1}"
 msgstr "Ange {0} för Personal: {1}"
 
-#: hrms/hr/doctype/shift_type/shift_type.js:33
-#: hrms/hr/doctype/shift_type/shift_type.js:38
+#: hrms/hr/doctype/shift_type/shift_type.js:21
+#: hrms/hr/doctype/shift_type/shift_type.js:26
 msgid "Please set {0}."
 msgstr "Obs: Ange {0}."
 
@@ -9994,7 +10033,7 @@ msgstr "Dela din återkoppling till utbildning genom att klicka på 'Utbildning 
 msgid "Please specify the job applicant to be updated."
 msgstr "Ange jobbsökande som ska uppdateras."
 
-#: hrms/payroll/doctype/salary_structure_assignment/salary_structure_assignment.py:141
+#: hrms/payroll/doctype/salary_structure_assignment/salary_structure_assignment.py:158
 msgid "Please specify {0} and {1} (if any), for the correct tax calculation in future salary slips."
 msgstr "Ange {0} och {1} (om sådana finns), för korrekt skatteberäkning i framtida lönespecifikationer."
 
@@ -10111,9 +10150,9 @@ msgstr "Hämta Närvaro Efter"
 msgid "Process Payroll Accounting Entry based on Employee"
 msgstr "Behandla Lön Bokföring Post per Anställd"
 
-#: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.js:112
-#: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.js:119
-#: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.js:121
+#: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.js:123
+#: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.js:130
+#: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.js:132
 msgid "Process Requests"
 msgstr "Behandla Begäran"
 
@@ -10122,19 +10161,19 @@ msgstr "Behandla Begäran"
 msgid "Process Shift Requests"
 msgstr "Behandla Skift Begäran"
 
-#: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.js:266
+#: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.js:289
 msgid "Process {0} Shift Request(s) as <b>{1}</b>?"
 msgstr "Behandla {0} Shift Begäran som <b>{1}</b>?"
 
-#: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.js:282
+#: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.js:305
 msgid "Processing Requests"
 msgstr "Behandlar Begäran"
 
-#: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.py:228
+#: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.py:293
 msgid "Processing Requests..."
 msgstr "Behandlar Begäran..."
 
-#: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.py:200
+#: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.py:265
 msgid "Processing of Shift Requests has been queued. It may take a few minutes."
 msgstr "Behandling av skift begäran är i kö. Det kan ta några minuter."
 
@@ -10225,7 +10264,7 @@ msgstr "Publicera Mottagna Ansökningar"
 #. Label of the publish_salary_range (Check) field in DocType 'Job Opening'
 #: hrms/hr/doctype/job_opening/job_opening.json
 msgid "Publish Salary Range"
-msgstr "Publicera Lön Intervall"
+msgstr "Publicera Löneintervall"
 
 #. Label of the publish (Check) field in DocType 'Job Opening'
 #: hrms/hr/doctype/job_opening/job_opening.json
@@ -10251,7 +10290,7 @@ msgstr "Syfte & Belopp"
 #: hrms/hr/doctype/travel_request/travel_request.json
 #: hrms/hr/workspace/expense_claims/expense_claims.json
 msgid "Purpose of Travel"
-msgstr "Rese Anledning"
+msgstr "Reseanledning"
 
 #: frontend/src/views/AppSettings.vue:128
 msgid "Push Notification permission denied"
@@ -10305,7 +10344,7 @@ msgstr "Snabb Länkar"
 #. Description of the 'Checkin Radius' (Int) field in DocType 'Shift Location'
 #: hrms/hr/doctype/shift_location/shift_location.json
 msgid "Radius within which check-in is allowed (in meters)"
-msgstr "Radie inom vilken incheckning är tillåten (i meter)"
+msgstr "Radie inom vilken stämpling är tillåten (i meter)"
 
 #. Label of the raised_by (Link) field in DocType 'Employee Grievance'
 #: hrms/hr/doctype/employee_grievance/employee_grievance.json
@@ -10473,8 +10512,8 @@ msgstr "Referens Dokument Namn"
 msgid "Reference Document Type"
 msgstr "Referens Dokument Typ"
 
-#: hrms/hr/doctype/leave_allocation/leave_allocation.py:355
-#: hrms/hr/doctype/leave_application/leave_application.py:481
+#: hrms/hr/doctype/leave_allocation/leave_allocation.py:368
+#: hrms/hr/doctype/leave_application/leave_application.py:483
 #: hrms/payroll/doctype/additional_salary/additional_salary.py:137
 #: hrms/payroll/doctype/payroll_entry/payroll_entry.py:91
 msgid "Reference: {0}"
@@ -10530,7 +10569,7 @@ msgid "Refuelling Details"
 msgstr "Bränsle Detaljer"
 
 #: frontend/src/components/RequestActionSheet.vue:96
-#: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.js:115
+#: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.js:126
 msgid "Reject"
 msgstr "Avvisa"
 
@@ -10668,9 +10707,8 @@ msgstr "Återbetalning från Lön kan endast väljas för Långfristiga Lån"
 msgid "Repay Unclaimed Amount from Salary"
 msgstr "Återbetala Förskött Belopp från Lön"
 
-#. Label of the repeat_on_days (Table) field in DocType 'Shift Assignment
-#. Schedule'
-#: hrms/hr/doctype/shift_assignment_schedule/shift_assignment_schedule.json
+#. Label of the repeat_on_days (Table) field in DocType 'Shift Schedule'
+#: hrms/hr/doctype/shift_schedule/shift_schedule.json
 msgid "Repeat On Days"
 msgstr "Upprepa dessa Dagar"
 
@@ -10913,8 +10951,8 @@ msgid "Role Allowed to Create Backdated Leave Application"
 msgstr "Roll tillåten för att skapa Efterdaterad Ledighet Ansökan"
 
 #. Label of a shortcut in the Shift & Attendance Workspace
-#: hrms/hr/doctype/shift_assignment/shift_assignment_list.js:12
 #: hrms/hr/workspace/shift_&_attendance/shift_&_attendance.json
+#: hrms/public/js/utils/index.js:250 hrms/public/js/utils/index.js:271
 msgid "Roster"
 msgstr "Schemaläggning"
 
@@ -10932,7 +10970,7 @@ msgstr "Omgång Namn"
 #. DocType 'Gratuity Rule'
 #: hrms/payroll/doctype/gratuity_rule/gratuity_rule.json
 msgid "Round off Work Experience"
-msgstr "Avrunda Arbetslivserfarenhet"
+msgstr "Avrunda Arbetsliv Erfarenhet"
 
 #. Label of the round_to_the_nearest_integer (Check) field in DocType 'Salary
 #. Component'
@@ -10980,19 +11018,23 @@ msgstr "Rad #{0}: Tidrapport belopp kommer att skriva över Inkomst komponent be
 
 #: hrms/hr/doctype/expense_claim/expense_claim.py:579
 msgid "Row No {0}: Amount cannot be greater than the Outstanding Amount against Expense Claim {1}. Outstanding Amount is {2}"
-msgstr "Rad Nummer {0}: Belopp kan inte vara högre än Utestående Belopp mot Kostnad Anspråk {1}. Utestående Belopp är {2}"
+msgstr "Rad #{0}: Belopp kan inte vara högre än Utestående Belopp mot Utlägg {1}. Utestående Belopp är {2}"
 
 #: hrms/hr/doctype/expense_claim/expense_claim.py:338
 msgid "Row {0}# Allocated amount {1} cannot be greater than unclaimed amount {2}"
 msgstr "Rad #{0}: Tilldelad Belopp {1} kan inte vara högre än ofodrad belopp {2}"
 
-#: hrms/payroll/doctype/gratuity/gratuity.py:138
+#: hrms/payroll/doctype/gratuity/gratuity.py:135
 msgid "Row {0}# Paid Amount cannot be greater than Total amount"
 msgstr "Rad #{0}: Betald belopp får inte vara högre än Totalt Belopp"
 
 #: hrms/hr/doctype/employee_advance/employee_advance.py:130
 msgid "Row {0}# Paid Amount cannot be greater than requested advance amount"
 msgstr "Rad #{0}: Betald belopp kan inte vara högre än begärd Förskott Belopp"
+
+#: hrms/payroll/doctype/salary_structure_assignment/salary_structure_assignment.py:139
+msgid "Row {0}: Cost Center {1} does not belong to Company {2}"
+msgstr "Rad # {0}: Resultat Enhet {1} tillhör inte Bolag {2}"
 
 #: hrms/payroll/doctype/gratuity_rule/gratuity_rule.py:15
 msgid "Row {0}: From (Year) can not be greater than To (Year)"
@@ -11012,7 +11054,7 @@ msgstr "Rad {0}: {1}"
 
 #: hrms/hr/doctype/expense_claim/expense_claim.py:271
 msgid "Row {0}: {1} is required in the expenses table to book an expense claim."
-msgstr "Rad {0}: {1} erfodras i Kostnad Tabell att bokföra Kostnad Anspråk."
+msgstr "Rad #{0}: {1} erfodras i Kostnad Tabell att bokföra Utlägg."
 
 #. Label of the gratuity_rules_section (Section Break) field in DocType
 #. 'Gratuity Rule'
@@ -11100,7 +11142,7 @@ msgstr "Löneinformation"
 #. Label of the salary_per (Select) field in DocType 'Job Opening'
 #: hrms/hr/doctype/job_opening/job_opening.json
 msgid "Salary Paid Per"
-msgstr "Lön Intervall"
+msgstr "Löneintervall"
 
 #. Name of a report
 #. Label of a Link in the Salary Payout Workspace
@@ -11123,7 +11165,7 @@ msgstr "Löner"
 
 #: hrms/templates/generators/job_opening.html:108
 msgid "Salary Range"
-msgstr "Lön Intervall"
+msgstr "Lönespann"
 
 #. Name of a report
 #. Label of a shortcut in the Payroll Workspace
@@ -11164,7 +11206,7 @@ msgstr "Lönespecifikation"
 msgid "Salary Slip Based on Timesheet"
 msgstr "Lönespecifikation Baserad på Tidrapport"
 
-#: hrms/payroll/report/salary_register/salary_register.py:107
+#: hrms/payroll/report/salary_register/salary_register.py:108
 msgid "Salary Slip ID"
 msgstr "Lönespecifikation"
 
@@ -11263,7 +11305,7 @@ msgstr "Löneart Tilldelning"
 msgid "Salary Structure Assignment field"
 msgstr "Löneart Tilldelning fält"
 
-#: hrms/payroll/doctype/salary_structure_assignment/salary_structure_assignment.py:41
+#: hrms/payroll/doctype/salary_structure_assignment/salary_structure_assignment.py:44
 msgid "Salary Structure Assignment for Employee already exists"
 msgstr "Löneart Tilldelning för Personal finns redan"
 
@@ -11283,7 +11325,7 @@ msgstr "Löneart hittades inte för {0} och datum {1}"
 msgid "Salary Structure should have flexible benefit component(s) to dispense benefit amount"
 msgstr "Löneart ska ha flexibla förmån komponenter för att fördela förmån belopp"
 
-#: hrms/payroll/doctype/salary_structure_assignment/salary_structure_assignment.py:65
+#: hrms/payroll/doctype/salary_structure_assignment/salary_structure_assignment.py:68
 msgid "Salary Structure {0} does not belong to company {1}"
 msgstr "Löneart {0} tillhör inte bolag {1}"
 
@@ -11298,7 +11340,7 @@ msgstr "Lönearter uppdaterades"
 #: hrms/payroll/doctype/salary_withholding/salary_withholding.json
 #: hrms/payroll/workspace/salary_payout/salary_payout.json
 msgid "Salary Withholding"
-msgstr "Lön Kvarhållande"
+msgstr "Lön Innehållande"
 
 #. Label of the salary_withholding_cycle (Data) field in DocType 'Salary Slip'
 #. Name of a DocType
@@ -11309,7 +11351,7 @@ msgstr "Lön Kvarhållning Cykel"
 
 #: hrms/payroll/doctype/salary_withholding/salary_withholding.py:39
 msgid "Salary Withholding {0} already exists for employee {1} for the selected period"
-msgstr "Lön kvarhållande {0} finns redan för {1} för valda period"
+msgstr "Lön innehållande {0} finns redan för {1} för vald period"
 
 #: hrms/hr/doctype/leave_application/leave_application.py:324
 msgid "Salary already processed for period between {0} and {1}, Leave application period cannot be between this date range."
@@ -11359,11 +11401,6 @@ msgstr "Godkänd Belopp kan inte vara högre än Fordring Belopp på rad {0}."
 #: hrms/hr/doctype/leave_block_list/leave_block_list.js:62
 msgid "Saturday"
 msgstr "Lördag"
-
-#. Label of the schedule (Link) field in DocType 'Shift Assignment'
-#: hrms/hr/doctype/shift_assignment/shift_assignment.json
-msgid "Schedule"
-msgstr "Schema"
 
 #. Option for the 'Status' (Select) field in DocType 'Exit Interview'
 #. Option for the 'Event Status' (Select) field in DocType 'Training Event'
@@ -11416,7 +11453,7 @@ msgstr "Välj Bolag"
 #. Salary Structure Assignment'
 #: hrms/hr/doctype/employee_attendance_tool/employee_attendance_tool.json
 #: hrms/hr/doctype/leave_control_panel/leave_control_panel.json
-#: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.js:102
+#: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.js:105
 #: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.json
 #: hrms/payroll/doctype/bulk_salary_structure_assignment/bulk_salary_structure_assignment.json
 msgid "Select Employees"
@@ -11437,7 +11474,7 @@ msgstr "Välj Betalning Konto att skapa Bank Post"
 
 #: hrms/payroll/doctype/payroll_entry/payroll_entry.py:1614
 msgid "Select Payroll Frequency."
-msgstr "Välj Löne Intervall"
+msgstr "Välj Löneintervall"
 
 #: frontend/src/views/salary_slip/Dashboard.vue:23
 msgid "Select Payroll Period"
@@ -11447,7 +11484,7 @@ msgstr "Välj Löneperiod"
 msgid "Select Property"
 msgstr "Välj Egenskaper"
 
-#: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.js:123
+#: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.js:134
 msgid "Select Shift Requests"
 msgstr "Välj Skift Begäran"
 
@@ -11466,7 +11503,7 @@ msgstr "Välj Användare"
 msgid "Select an employee to get the employee advance."
 msgstr "Välj Personal att hämta Personal Förskott."
 
-#: hrms/hr/doctype/leave_allocation/leave_allocation.js:179
+#: hrms/hr/doctype/leave_allocation/leave_allocation.js:200
 msgid "Select the Employee for which you want to allocate leaves."
 msgstr "Välj anställd som du vill tilldela ledighet för."
 
@@ -11474,15 +11511,15 @@ msgstr "Välj anställd som du vill tilldela ledighet för."
 msgid "Select the Employee."
 msgstr "Välj Personal."
 
-#: hrms/hr/doctype/leave_allocation/leave_allocation.js:184
+#: hrms/hr/doctype/leave_allocation/leave_allocation.js:205
 msgid "Select the Leave Type like Sick leave, Privilege Leave, Casual Leave, etc."
 msgstr "Välj ledighet typ som sjukledighet, privilegieledighet, tillfällig ledighet, osv."
 
-#: hrms/hr/doctype/leave_allocation/leave_allocation.js:196
+#: hrms/hr/doctype/leave_allocation/leave_allocation.js:217
 msgid "Select the date after which this Leave Allocation will expire."
 msgstr "Välj datum efter vilket denna ledighetsallokering ska upphöra."
 
-#: hrms/hr/doctype/leave_allocation/leave_allocation.js:191
+#: hrms/hr/doctype/leave_allocation/leave_allocation.js:212
 msgid "Select the date from which this Leave Allocation will be valid."
 msgstr "Välj datum från vilket denna ledighetstilldelning ska gälla."
 
@@ -11494,9 +11531,9 @@ msgstr "Välj slut datum för Ledighet."
 msgid "Select the start date for your Leave Application."
 msgstr "Välj start datum för Ledighet."
 
-#. Description of the 'Enabled' (Check) field in DocType 'Shift Assignment
-#. Schedule'
-#: hrms/hr/doctype/shift_assignment_schedule/shift_assignment_schedule.json
+#. Description of the 'Enabled' (Check) field in DocType 'Shift Schedule
+#. Assignment'
+#: hrms/hr/doctype/shift_schedule_assignment/shift_schedule_assignment.json
 msgid "Select this if you want shift assignments to be automatically created indefinitely."
 msgstr "Välj detta för att skift tilldelningar ska skapas automatiskt på obestämd tid."
 
@@ -11779,13 +11816,13 @@ msgstr "Delad med användare {0} med 'godkännande' behörighet"
 #. Label of the shift (Link) field in DocType 'Attendance Request'
 #. Label of the shift (Link) field in DocType 'Employee Attendance Tool'
 #. Label of the shift (Link) field in DocType 'Employee Checkin'
-#: frontend/src/views/attendance/AttendanceRequestList.vue:21
-#: frontend/src/views/attendance/EmployeeCheckinList.vue:28
+#: frontend/src/views/attendance/AttendanceRequestList.vue:24
+#: frontend/src/views/attendance/EmployeeCheckinList.vue:31
 #: hrms/hr/doctype/attendance/attendance.json
 #: hrms/hr/doctype/attendance_request/attendance_request.json
 #: hrms/hr/doctype/employee_attendance_tool/employee_attendance_tool.json
 #: hrms/hr/doctype/employee_checkin/employee_checkin.json
-#: hrms/hr/report/monthly_attendance_sheet/monthly_attendance_sheet.py:151
+#: hrms/hr/report/monthly_attendance_sheet/monthly_attendance_sheet.py:154
 #: hrms/hr/report/shift_attendance/shift_attendance.py:36
 #: hrms/hr/report/shift_attendance/shift_attendance.py:205
 #: hrms/overrides/dashboard_overrides.py:33
@@ -11835,18 +11872,9 @@ msgstr "Skifttilldelning Historik"
 
 #. Name of a DocType
 #. Label of a Link in the Shift & Attendance Workspace
-#: hrms/hr/doctype/shift_assignment_schedule/shift_assignment_schedule.json
-#: hrms/hr/workspace/shift_&_attendance/shift_&_attendance.json
-msgid "Shift Assignment Schedule"
-msgstr "Skift Tilldelning Schema"
-
-#. Name of a DocType
-#. Label of a Link in the Shift & Attendance Workspace
-#: hrms/hr/doctype/shift_assignment/shift_assignment_list.js:4
 #: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.json
-#: hrms/hr/doctype/shift_request/shift_request_list.js:3
-#: hrms/hr/doctype/shift_type/shift_type_list.js:3
 #: hrms/hr/workspace/shift_&_attendance/shift_&_attendance.json
+#: hrms/public/js/utils/index.js:238 hrms/public/js/utils/index.js:260
 msgid "Shift Assignment Tool"
 msgstr "Skift Tilldelning Verktyg"
 
@@ -11863,10 +11891,10 @@ msgstr "Skift Närvaro"
 
 #. Label of the shift_details_section (Section Break) field in DocType 'Shift
 #. Assignment'
-#. Label of the shift_details_section (Section Break) field in DocType 'Shift
-#. Assignment Schedule'
+#. Label of the schedule_settings_section (Section Break) field in DocType
+#. 'Shift Schedule Assignment'
 #: hrms/hr/doctype/shift_assignment/shift_assignment.json
-#: hrms/hr/doctype/shift_assignment_schedule/shift_assignment_schedule.json
+#: hrms/hr/doctype/shift_schedule_assignment/shift_schedule_assignment.json
 msgid "Shift Details"
 msgstr "Skift Detaljer"
 
@@ -11880,10 +11908,15 @@ msgid "Shift End Time"
 msgstr "Skift Slut Tid"
 
 #. Label of the shift_location (Link) field in DocType 'Shift Assignment'
+#. Label of the shift_location (Link) field in DocType 'Shift Assignment Tool'
 #. Name of a DocType
+#. Label of the shift_location (Link) field in DocType 'Shift Schedule
+#. Assignment'
 #. Label of a Link in the Shift & Attendance Workspace
 #: hrms/hr/doctype/shift_assignment/shift_assignment.json
+#: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.json
 #: hrms/hr/doctype/shift_location/shift_location.json
+#: hrms/hr/doctype/shift_schedule_assignment/shift_schedule_assignment.json
 #: hrms/hr/workspace/shift_&_attendance/shift_&_attendance.json
 msgid "Shift Location"
 msgstr "Skift Plats"
@@ -11893,7 +11926,7 @@ msgstr "Skift Plats"
 #. Label of a Link in the Shift & Attendance Workspace
 #. Label of a shortcut in the Shift & Attendance Workspace
 #: hrms/hr/doctype/shift_assignment/shift_assignment.json
-#: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.js:197
+#: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.js:220
 #: hrms/hr/doctype/shift_request/shift_request.json
 #: hrms/hr/workspace/shift_&_attendance/shift_&_attendance.json
 msgid "Shift Request"
@@ -11920,6 +11953,28 @@ msgstr "Skift Begäran som slutar före detta datum kommer att exkluderas."
 msgid "Shift Requests starting after this date will be excluded."
 msgstr "Skift Begäran som startar före detta datum kommer att exkluderas."
 
+#. Label of the shift_schedule (Link) field in DocType 'Shift Assignment Tool'
+#. Name of a DocType
+#. Label of the shift_schedule (Link) field in DocType 'Shift Schedule
+#. Assignment'
+#. Label of a Link in the Shift & Attendance Workspace
+#: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.json
+#: hrms/hr/doctype/shift_schedule/shift_schedule.json
+#: hrms/hr/doctype/shift_schedule_assignment/shift_schedule_assignment.json
+#: hrms/hr/workspace/shift_&_attendance/shift_&_attendance.json
+msgid "Shift Schedule"
+msgstr "Skift Schema"
+
+#. Label of the shift_schedule_assignment (Link) field in DocType 'Shift
+#. Assignment'
+#. Name of a DocType
+#. Label of a Link in the Shift & Attendance Workspace
+#: hrms/hr/doctype/shift_assignment/shift_assignment.json
+#: hrms/hr/doctype/shift_schedule_assignment/shift_schedule_assignment.json
+#: hrms/hr/workspace/shift_&_attendance/shift_&_attendance.json
+msgid "Shift Schedule Assignment"
+msgstr "Skift Schema Tilldelning"
+
 #. Label of the shift_settings_section (Section Break) field in DocType 'HR
 #. Settings'
 #: hrms/hr/doctype/hr_settings/hr_settings.json
@@ -11935,27 +11990,38 @@ msgstr "Skift Start"
 msgid "Shift Start Time"
 msgstr "Skift Start Tid"
 
+#. Label of the shift_status (Select) field in DocType 'Shift Schedule
+#. Assignment'
+#: hrms/hr/doctype/shift_schedule_assignment/shift_schedule_assignment.json
+msgid "Shift Status"
+msgstr "Skiftstatus"
+
 #. Label of the shift_timings_section (Section Break) field in DocType
 #. 'Employee Checkin'
 #: hrms/hr/doctype/employee_checkin/employee_checkin.json
 msgid "Shift Timings"
 msgstr "Skift Tider"
 
+#: hrms/public/js/utils/index.js:246 hrms/public/js/utils/index.js:254
+#: hrms/public/js/utils/index.js:268 hrms/public/js/utils/index.js:275
+msgid "Shift Tools"
+msgstr "Skift Verktyg"
+
 #. Label of the shift_type (Link) field in DocType 'Shift Assignment'
-#. Label of the shift_type (Link) field in DocType 'Shift Assignment Schedule'
 #. Label of the shift_type (Link) field in DocType 'Shift Assignment Tool'
 #. Label of the shift_type_filter (Link) field in DocType 'Shift Assignment
 #. Tool'
 #. Label of the shift_type (Link) field in DocType 'Shift Request'
+#. Label of the shift_type (Link) field in DocType 'Shift Schedule'
 #. Name of a DocType
 #. Label of a Link in the Shift & Attendance Workspace
 #: frontend/src/views/attendance/ShiftAssignmentList.vue:24
 #: frontend/src/views/attendance/ShiftRequestList.vue:42
 #: hrms/hr/doctype/shift_assignment/shift_assignment.json
-#: hrms/hr/doctype/shift_assignment_schedule/shift_assignment_schedule.json
-#: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.js:207
+#: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.js:230
 #: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.json
 #: hrms/hr/doctype/shift_request/shift_request.json
+#: hrms/hr/doctype/shift_schedule/shift_schedule.json
 #: hrms/hr/doctype/shift_type/shift_type.json
 #: hrms/hr/report/shift_attendance/shift_attendance.js:28
 #: hrms/hr/workspace/shift_&_attendance/shift_&_attendance.json
@@ -12066,7 +12132,7 @@ msgstr "Käll Namn"
 msgid "Source and Rating"
 msgstr "Källa och Bedömning"
 
-#: hrms/api/roster.py:84
+#: hrms/api/roster.py:100
 msgid "Source and target shifts cannot be the same"
 msgstr "Käll och Mål Skift kan inte vara desamma"
 
@@ -12143,7 +12209,7 @@ msgstr "Start"
 #: hrms/payroll/doctype/payroll_period/payroll_period.json
 #: hrms/payroll/doctype/payroll_period_date/payroll_period_date.json
 #: hrms/payroll/doctype/salary_slip/salary_slip.json
-#: hrms/payroll/report/salary_register/salary_register.py:161
+#: hrms/payroll/report/salary_register/salary_register.py:162
 msgid "Start Date"
 msgstr "Start Datum"
 
@@ -12200,8 +12266,6 @@ msgstr "Statistisk Komponent"
 #. Label of the status (Select) field in DocType 'Job Requisition'
 #. Label of the status (Select) field in DocType 'Leave Application'
 #. Label of the status (Select) field in DocType 'Shift Assignment'
-#. Label of the shift_status (Select) field in DocType 'Shift Assignment
-#. Schedule'
 #. Label of the status (Select) field in DocType 'Shift Assignment Tool'
 #. Label of the status (Select) field in DocType 'Shift Request'
 #. Label of the status (Select) field in DocType 'Training Event Employee'
@@ -12238,7 +12302,6 @@ msgstr "Statistisk Komponent"
 #: hrms/hr/doctype/job_requisition/job_requisition.json
 #: hrms/hr/doctype/leave_application/leave_application.json
 #: hrms/hr/doctype/shift_assignment/shift_assignment.json
-#: hrms/hr/doctype/shift_assignment_schedule/shift_assignment_schedule.json
 #: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.json
 #: hrms/hr/doctype/shift_request/shift_request.json
 #: hrms/hr/doctype/training_event_employee/training_event_employee.json
@@ -12268,7 +12331,7 @@ msgstr "Tillåt inte Användare att skapa Ledighet Ansökningar på följande da
 #. 'Shift Type'
 #: hrms/hr/doctype/shift_type/shift_type.json
 msgid "Strictly based on Log Type in Employee Checkin"
-msgstr "Strikt baserat på Logg Typ i Personal In/Utcheckning"
+msgstr "Strikt baserat på Logg Typ i Personal Stämplingar"
 
 #: hrms/payroll/doctype/salary_structure/salary_structure.py:292
 msgid "Structures have been assigned successfully"
@@ -12501,9 +12564,9 @@ msgstr " Skatt & Förmåner"
 #. Label of the tax_deducted_till_date (Currency) field in DocType 'Salary
 #. Structure Assignment'
 #: hrms/payroll/doctype/salary_structure_assignment/salary_structure_assignment.json
-#: hrms/payroll/doctype/salary_structure_assignment/salary_structure_assignment.py:145
+#: hrms/payroll/doctype/salary_structure_assignment/salary_structure_assignment.py:162
 msgid "Tax Deducted Till Date"
-msgstr "Avdragen Skatt Till Datum"
+msgstr "Skatt Avdragen Till Datum"
 
 #. Label of the exemption_category (Link) field in DocType 'Employee Tax
 #. Exemption Sub Category'
@@ -12546,7 +12609,7 @@ msgstr "Skatt på Flexibel Förmån"
 #. Label of the taxable_earnings_till_date (Currency) field in DocType 'Salary
 #. Structure Assignment'
 #: hrms/payroll/doctype/salary_structure_assignment/salary_structure_assignment.json
-#: hrms/payroll/doctype/salary_structure_assignment/salary_structure_assignment.py:144
+#: hrms/payroll/doctype/salary_structure_assignment/salary_structure_assignment.py:161
 msgid "Taxable Earnings Till Date"
 msgstr "Beskattningbar Inkomst Till Datum"
 
@@ -12638,11 +12701,11 @@ msgstr "Datum då Lönekomponent med Belopp kommer att bidra för Inkomst/Avdrag
 msgid "The day of the month when leaves should be allocated"
 msgstr "Dag i Månaden då ledighet ska tilldelas"
 
-#: hrms/hr/doctype/leave_application/leave_application.py:365
+#: hrms/hr/doctype/leave_application/leave_application.py:367
 msgid "The day(s) on which you are applying for leave are holidays. You need not apply for leave."
 msgstr "Dag(ar) som man ansöker om ledighet är helg dagar. Du behöver inte ansöka om ledighet."
 
-#: hrms/hr/doctype/compensatory_leave_request/compensatory_leave_request.py:63
+#: hrms/hr/doctype/compensatory_leave_request/compensatory_leave_request.py:64
 msgid "The days between {0} to {1} are not valid holidays."
 msgstr "Dagarna mellan {0} och {1} är inte giltiga helgdagar."
 
@@ -12678,19 +12741,19 @@ msgstr "Lönespecifikation skickad via e-post till Personal kommer att vara lös
 #. Type'
 #: hrms/hr/doctype/shift_type/shift_type.json
 msgid "The time after the shift start time when check-in is considered as late (in minutes)."
-msgstr "Tiden efter Skift Start Tid när Incheckning betraktas som sen (Minuter)."
+msgstr "Tid efter Skift Start Tid när Instämpling beaktas som sen (minuter)."
 
 #. Description of the 'Early Exit Grace Period' (Int) field in DocType 'Shift
 #. Type'
 #: hrms/hr/doctype/shift_type/shift_type.json
 msgid "The time before the shift end time when check-out is considered as early (in minutes)."
-msgstr "Tid före Skift Slut Tid när Utcheckning betraktas som tidig (Minuter)."
+msgstr "Tid före Skift Slut Tid när Utstämpling betraktas som tidig (Minuter)."
 
 #. Description of the 'Begin check-in before shift start time (in minutes)'
 #. (Int) field in DocType 'Shift Type'
 #: hrms/hr/doctype/shift_type/shift_type.json
 msgid "The time before the shift start time during which Employee Check-in is considered for attendance."
-msgstr "Tiden före Skift Start tid under vilken Personal Incheckning anses vara Närvaro."
+msgstr "Tiden före Skift Start tid under vilken Personal Stämpling anses vara Närvaro."
 
 #. Option for the 'Type' (Select) field in DocType 'Training Event'
 #: hrms/hr/doctype/training_event/training_event.json
@@ -12707,7 +12770,7 @@ msgstr "Det finns inga lediga jobb inom bemanning plan {0}"
 
 #: hrms/payroll/doctype/additional_salary/additional_salary.py:37
 #: hrms/payroll/doctype/employee_incentive/employee_incentive.py:20
-#: hrms/payroll/doctype/salary_structure_assignment/salary_structure_assignment.py:202
+#: hrms/payroll/doctype/salary_structure_assignment/salary_structure_assignment.py:222
 msgid "There is no Salary Structure assigned to {0}. First assign a Salary Stucture."
 msgstr "Det finns ingen löneart tilldelad till {0}. Tilldela löneart först."
 
@@ -12724,13 +12787,13 @@ msgstr "Dessa Ledigheter är helgdagar som är tillåtna av Bolaget, men att anv
 msgid "This action will prevent making changes to the linked appraisal feedback/goals."
 msgstr "Denna åtgärd förhindrar att ändringar görs i länkad återkoppling/mål för bedömning."
 
-#: hrms/hr/doctype/compensatory_leave_request/compensatory_leave_request.py:96
+#: hrms/hr/doctype/compensatory_leave_request/compensatory_leave_request.py:97
 msgid "This compensatory leave will be applicable from {0}."
 msgstr "Denna kompensationsledighet gäller från och med {0}."
 
 #: hrms/hr/doctype/employee_checkin/employee_checkin.py:43
 msgid "This employee already has a log with the same timestamp.{0}"
-msgstr "Personal har redan logg med samma tidsstämpel. {0}"
+msgstr "Personal har redan logg med samma tidstämpel. {0}"
 
 #: hrms/payroll/doctype/salary_slip/salary_slip.py:1225
 msgid "This error can be due to invalid formula or condition."
@@ -12793,7 +12856,7 @@ msgstr "Tidrapport"
 #. field in DocType 'Shift Type'
 #: hrms/hr/doctype/shift_type/shift_type.json
 msgid "Time after the end of shift during which check-out is considered for attendance."
-msgstr "Tid efter Avslutad Skift under vilken Utcheckning anses vara Närvaro."
+msgstr "Tid efter Avslutad Skift under vilken Stämpling anses vara Närvaro."
 
 #. Description of the 'Time to Fill' (Duration) field in DocType 'Job
 #. Requisition'
@@ -12841,7 +12904,7 @@ msgstr "Tidpunkt"
 #: hrms/hr/doctype/kra/kra.json hrms/hr/doctype/leave_policy/leave_policy.json
 #: hrms/hr/report/employee_advance_summary/employee_advance_summary.py:40
 msgid "Title"
-msgstr "Titel"
+msgstr "Benämning"
 
 #: hrms/payroll/report/salary_register/salary_register.js:16
 msgid "To"
@@ -12864,7 +12927,7 @@ msgstr "Till Belopp"
 #. Label of the to_date (Date) field in DocType 'Additional Salary'
 #. Label of the to_date (Date) field in DocType 'Salary Withholding'
 #. Label of the to_date (Date) field in DocType 'Salary Withholding Cycle'
-#: frontend/src/views/attendance/AttendanceRequestList.vue:25
+#: frontend/src/views/attendance/AttendanceRequestList.vue:28
 #: frontend/src/views/attendance/ShiftRequestList.vue:58
 #: hrms/hr/dashboard_chart_source/hiring_vs_attrition_count/hiring_vs_attrition_count.js:22
 #: hrms/hr/doctype/attendance_request/attendance_request.json
@@ -12873,7 +12936,7 @@ msgstr "Till Belopp"
 #: hrms/hr/doctype/leave_control_panel/leave_control_panel.json
 #: hrms/hr/doctype/leave_ledger_entry/leave_ledger_entry.json
 #: hrms/hr/doctype/leave_period/leave_period.json
-#: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.js:217
+#: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.js:240
 #: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.json
 #: hrms/hr/doctype/shift_request/shift_request.json
 #: hrms/hr/doctype/staffing_plan/staffing_plan.json
@@ -12885,7 +12948,7 @@ msgstr "Till Belopp"
 #: hrms/hr/report/leave_ledger/leave_ledger.js:15
 #: hrms/hr/report/leave_ledger/leave_ledger.py:53
 #: hrms/hr/report/shift_attendance/shift_attendance.js:15
-#: hrms/hr/report/vehicle_expenses/vehicle_expenses.js:32
+#: hrms/hr/report/vehicle_expenses/vehicle_expenses.js:44
 #: hrms/payroll/doctype/additional_salary/additional_salary.json
 #: hrms/payroll/doctype/salary_withholding/salary_withholding.json
 #: hrms/payroll/doctype/salary_withholding_cycle/salary_withholding_cycle.json
@@ -12941,10 +13004,6 @@ msgstr "Till Datum kan det inte vara senare än Personal Avgång Datum"
 msgid "To date cannot be before from date"
 msgstr "Till Datum kan inte vara tidiggare än Från Datum"
 
-#: hrms/hr/doctype/leave_ledger_entry/leave_ledger_entry.py:13
-msgid "To date needs to be before from date"
-msgstr "Till Datum ska vara tidigare än Från Datum"
-
 #: hrms/payroll/doctype/additional_salary/additional_salary.py:161
 msgid "To overwrite the salary component amount for a tax component, please enable {0}"
 msgstr "För att skriva över lönekomponent belopp för skattkomponent, aktivera {0}"
@@ -12978,7 +13037,7 @@ msgstr "Idag fyller {0} {1} år hos oss! 🎉"
 msgid "Total"
 msgstr "Totalt"
 
-#: hrms/hr/report/monthly_attendance_sheet/monthly_attendance_sheet.py:118
+#: hrms/hr/report/monthly_attendance_sheet/monthly_attendance_sheet.py:121
 msgid "Total Absent"
 msgstr "Totalt Frånvarande"
 
@@ -13021,7 +13080,7 @@ msgstr "Totalt Belopp"
 msgid "Total Amount Reimbursed"
 msgstr "Totalt Belopp Återbetald"
 
-#: hrms/payroll/doctype/gratuity/gratuity.py:105
+#: hrms/payroll/doctype/gratuity/gratuity.py:102
 msgid "Total Amount cannot be zero"
 msgstr "Totalt Belopp kan inte vara noll"
 
@@ -13053,7 +13112,7 @@ msgstr "Totalt Deklarerad Belopp"
 #: hrms/payroll/doctype/salary_slip/salary_slip.json
 #: hrms/payroll/doctype/salary_structure/salary_structure.json
 #: hrms/payroll/report/salary_payments_based_on_payment_mode/salary_payments_based_on_payment_mode.py:148
-#: hrms/payroll/report/salary_register/salary_register.py:228
+#: hrms/payroll/report/salary_register/salary_register.py:235
 msgid "Total Deduction"
 msgstr "Totalt Avdrag"
 
@@ -13062,7 +13121,7 @@ msgstr "Totalt Avdrag"
 msgid "Total Deduction (Company Currency)"
 msgstr "Totalt Avdrag (Bolag Valuta)"
 
-#: hrms/hr/report/monthly_attendance_sheet/monthly_attendance_sheet.py:143
+#: hrms/hr/report/monthly_attendance_sheet/monthly_attendance_sheet.py:146
 msgid "Total Early Exits"
 msgstr "Totalt Tidiga Avgångar"
 
@@ -13103,11 +13162,11 @@ msgstr "Totalt Kostnad Belopp"
 
 #: hrms/setup.py:292
 msgid "Total Expense Claim (via Expense Claim)"
-msgstr "Total Kostnad Anspråk (via Kostnad Anspråk)"
+msgstr "Totalt Utlägg (via Utlägg)"
 
 #: hrms/setup.py:283
 msgid "Total Expense Claim (via Expense Claims)"
-msgstr "Total Kostnad Anspråk (via Kostnad Anspråk)"
+msgstr "Totalt Utlägg (via Utlägg)"
 
 #. Label of the total_score (Float) field in DocType 'Appraisal'
 #: hrms/hr/doctype/appraisal/appraisal.json
@@ -13119,7 +13178,7 @@ msgstr "Totalt Mål Resultat"
 msgid "Total Gross Pay"
 msgstr "Totalt Brutto Lön"
 
-#: hrms/hr/report/monthly_attendance_sheet/monthly_attendance_sheet.py:120
+#: hrms/hr/report/monthly_attendance_sheet/monthly_attendance_sheet.py:123
 msgid "Total Holidays"
 msgstr "Totalt Helg Dagar"
 
@@ -13136,7 +13195,7 @@ msgstr "Totalt Inkomst Skatt"
 msgid "Total Interest Amount"
 msgstr "Räntebelopp"
 
-#: hrms/hr/report/monthly_attendance_sheet/monthly_attendance_sheet.py:137
+#: hrms/hr/report/monthly_attendance_sheet/monthly_attendance_sheet.py:140
 msgid "Total Late Entries"
 msgstr "Totalt Sena Ankomster"
 
@@ -13145,7 +13204,7 @@ msgstr "Totalt Sena Ankomster"
 msgid "Total Leave Days"
 msgstr "Totalt Ledighet Dagar"
 
-#: hrms/hr/report/monthly_attendance_sheet/monthly_attendance_sheet.py:117
+#: hrms/hr/report/monthly_attendance_sheet/monthly_attendance_sheet.py:120
 msgid "Total Leaves"
 msgstr "Totalt Ledighet"
 
@@ -13188,9 +13247,9 @@ msgstr "Totalt Betalt Belopp"
 msgid "Total Payment"
 msgstr "Totalt Betalning"
 
-#: hrms/hr/report/monthly_attendance_sheet/monthly_attendance_sheet.py:112
+#: hrms/hr/report/monthly_attendance_sheet/monthly_attendance_sheet.py:115
 msgid "Total Present"
-msgstr "Totalt Nuvarande"
+msgstr "Totalt Närvarande"
 
 #: hrms/setup.py:785
 msgid "Total Principal Amount"
@@ -13261,7 +13320,7 @@ msgstr "Totalt i Ord"
 msgid "Total in words (Company Currency)"
 msgstr "Totalt I Ord (Bolag Valuta)"
 
-#: hrms/hr/doctype/leave_allocation/leave_allocation.py:351
+#: hrms/hr/doctype/leave_allocation/leave_allocation.py:364
 msgid "Total leaves allocated cannot exceed annual allocation of {0}."
 msgstr "Totalt tilldelade ledigheter får inte överstiga årlig tilldelning på {0}."
 
@@ -13269,7 +13328,7 @@ msgstr "Totalt tilldelade ledigheter får inte överstiga årlig tilldelning på
 msgid "Total leaves allocated is mandatory for Leave Type {0}"
 msgstr "Totalt antal tilldelad ledighet erfodras för Ledighet Typ {0}"
 
-#: hrms/payroll/doctype/salary_structure_assignment/salary_structure_assignment.py:131
+#: hrms/payroll/doctype/salary_structure_assignment/salary_structure_assignment.py:148
 msgid "Total percentage against cost centers should be 100"
 msgstr "Totalt procentsats mot resultat enheter ska vara 100 %"
 
@@ -13282,7 +13341,7 @@ msgstr "Totalt lön bokförd mot denna komponent för denna personal från börj
 #. Description of the 'Month To Date' (Currency) field in DocType 'Salary Slip'
 #: hrms/payroll/doctype/salary_slip/salary_slip.json
 msgid "Total salary booked for this employee from the beginning of the month up to the current salary slip's end date."
-msgstr "Totalt lön bokförd för denna personal från början av månaden fram till aktuell lönespecifikation slutdatum."
+msgstr "Totalt lön bokförd för personal från början av månaden fram till aktuell lönespecifikation slutdatum."
 
 #. Description of the 'Year To Date' (Currency) field in DocType 'Salary Slip'
 #: hrms/payroll/doctype/salary_slip/salary_slip.json
@@ -13469,7 +13528,7 @@ msgstr "Resa Från"
 #. Label of the travel_funding (Select) field in DocType 'Travel Request'
 #: hrms/hr/doctype/travel_request/travel_request.json
 msgid "Travel Funding"
-msgstr "Rese Finansiering"
+msgstr "Resefinansiering"
 
 #. Name of a DocType
 #. Label of the travel_itinerary (Section Break) field in DocType 'Travel
@@ -13477,7 +13536,7 @@ msgstr "Rese Finansiering"
 #: hrms/hr/doctype/travel_itinerary/travel_itinerary.json
 #: hrms/hr/doctype/travel_request/travel_request.json
 msgid "Travel Itinerary"
-msgstr "Rese Plan"
+msgstr "Reseplan"
 
 #. Name of a DocType
 #. Label of a Link in the Expense Claims Workspace
@@ -13486,12 +13545,12 @@ msgstr "Rese Plan"
 #: hrms/hr/workspace/expense_claims/expense_claims.json
 #: hrms/hr/workspace/hr/hr.json
 msgid "Travel Request"
-msgstr "Rese Begäran"
+msgstr "Resebegäran"
 
 #. Name of a DocType
 #: hrms/hr/doctype/travel_request_costing/travel_request_costing.json
 msgid "Travel Request Costing"
-msgstr "Rese Kostnad Begäran"
+msgstr "Resebegäran Kostnad"
 
 #. Label of the travel_to (Data) field in DocType 'Travel Itinerary'
 #: hrms/hr/doctype/travel_itinerary/travel_itinerary.json
@@ -13501,7 +13560,7 @@ msgstr "Resa Till"
 #. Label of the travel_type (Select) field in DocType 'Travel Request'
 #: hrms/hr/doctype/travel_request/travel_request.json
 msgid "Travel Type"
-msgstr "Rese Typ"
+msgstr "Resetyp"
 
 #: frontend/src/components/AttendanceCalendar.vue:114
 #: hrms/hr/doctype/leave_block_list/leave_block_list.js:42
@@ -13556,7 +13615,7 @@ msgstr "Ta bort länk till betalning"
 
 #: hrms/hr/doctype/attendance/attendance.py:219
 msgid "Unlinked Attendance record from Employee Checkins: {}"
-msgstr "Olänkad Närvaro post från Personal In/Utcheckningar: {}"
+msgstr "Ej Länkad Närvaro post från Personal Stämplingar: {}"
 
 #: hrms/hr/doctype/attendance/attendance.py:222
 msgid "Unlinked logs"
@@ -13572,7 +13631,7 @@ msgstr "Oanmäld Närvaro"
 msgid "Unmarked Attendance for days"
 msgstr "Oregistrerad Närvaro för dagar"
 
-#: hrms/hr/report/monthly_attendance_sheet/monthly_attendance_sheet.py:126
+#: hrms/hr/report/monthly_attendance_sheet/monthly_attendance_sheet.py:129
 #: hrms/public/js/templates/employees_with_unmarked_attendance.html:19
 msgid "Unmarked Days"
 msgstr "Oanmälda Dagar"
@@ -13601,7 +13660,7 @@ msgstr "Obetald"
 #: hrms/hr/report/unpaid_expense_claim/unpaid_expense_claim.json
 #: hrms/hr/workspace/expense_claims/expense_claims.json
 msgid "Unpaid Expense Claim"
-msgstr "Obetald Kostnad"
+msgstr "Obetald Utlägg"
 
 #. Option for the 'Status' (Select) field in DocType 'Full and Final
 #. Outstanding Statement'
@@ -13809,7 +13868,7 @@ msgid "Vegetarian"
 msgstr "Vegetarian"
 
 #. Label of a Link in the Expense Claims Workspace
-#: hrms/hr/report/vehicle_expenses/vehicle_expenses.js:40
+#: hrms/hr/report/vehicle_expenses/vehicle_expenses.js:51
 #: hrms/hr/report/vehicle_expenses/vehicle_expenses.py:27
 #: hrms/hr/workspace/expense_claims/expense_claims.json
 msgid "Vehicle"
@@ -13854,8 +13913,6 @@ msgstr "Fordon Service Artikel"
 #: hrms/hr/doctype/expense_claim/expense_claim.js:125
 #: hrms/hr/doctype/expense_claim/expense_claim.js:156
 #: hrms/hr/doctype/job_applicant/job_applicant.js:42
-#: hrms/hr/doctype/shift_assignment/shift_assignment_list.js:8
-#: hrms/hr/doctype/shift_assignment/shift_assignment_list.js:16
 msgid "View"
 msgstr "Visa"
 
@@ -13898,7 +13955,7 @@ msgstr "Varning: Lån Hantering modul är separerad från System."
 msgid "Walk In"
 msgstr "Besök"
 
-#: hrms/hr/doctype/leave_application/leave_application.py:404
+#: hrms/hr/doctype/leave_application/leave_application.py:406
 #: hrms/payroll/doctype/additional_salary/additional_salary.py:153
 #: hrms/payroll/doctype/salary_component/salary_component.py:56
 #: hrms/payroll/doctype/salary_structure/salary_structure.js:322
@@ -13907,11 +13964,11 @@ msgstr "Besök"
 msgid "Warning"
 msgstr "Varning"
 
-#: hrms/hr/doctype/leave_application/leave_application.py:392
+#: hrms/hr/doctype/leave_application/leave_application.py:394
 msgid "Warning: Insufficient leave balance for Leave Type {0} in this allocation."
 msgstr "Varning: Otillräckligt Ledighet Saldo för Ledighet Typ {0} i denna tilldelning."
 
-#: hrms/hr/doctype/leave_application/leave_application.py:400
+#: hrms/hr/doctype/leave_application/leave_application.py:402
 msgid "Warning: Insufficient leave balance for Leave Type {0}."
 msgstr "Varning: Otillräckligt Ledighet Saldo för Ledighet Typ {0}."
 
@@ -14106,12 +14163,12 @@ msgstr "År"
 #: hrms/payroll/doctype/salary_detail/salary_detail.json
 #: hrms/payroll/doctype/salary_slip/salary_slip.json
 msgid "Year To Date"
-msgstr "I År Till Datum"
+msgstr "Hittills i År"
 
 #. Label of the base_year_to_date (Currency) field in DocType 'Salary Slip'
 #: hrms/payroll/doctype/salary_slip/salary_slip.json
 msgid "Year To Date(Company Currency)"
-msgstr "I År Till Datum (Bolag Valuta)"
+msgstr "Hittills i År (Bolag Valuta)"
 
 #. Option for the 'Earned Leave Frequency' (Select) field in DocType 'Leave
 #. Type'
@@ -14142,13 +14199,13 @@ msgstr "Ja, Fortsätt"
 msgid "You are not authorized to approve leaves on Block Dates"
 msgstr "Behörighet saknas för att godkänna Ledighet på Spärrad Datum"
 
-#: hrms/hr/doctype/compensatory_leave_request/compensatory_leave_request.py:57
+#: hrms/hr/doctype/compensatory_leave_request/compensatory_leave_request.py:58
 msgid "You are not present all day(s) between compensatory leave request days"
-msgstr "Du är inte närvarande hela dag(ar) mellan Kompensations Ledighet dagar"
+msgstr "Du är inte närvarande hela dagen/dagarna mellan de dagar du begär kompensationsledighet för"
 
 #: hrms/payroll/doctype/employee_benefit_application/employee_benefit_application.py:101
 msgid "You can claim only an amount of {0}, the rest amount {1} should be in the application as pro-rata component"
-msgstr "Du kan endast göra anspråk på belopp om {0}, resten av belopp {1} ska finnas i ansökan som proportionell komponent"
+msgstr "Du kan endast ansöka om ett belopp på {0}, resten av belopp {1} ska ingå i ansökan som proportionell komponent"
 
 #: hrms/payroll/doctype/gratuity_rule/gratuity_rule.py:24
 msgid "You can not define multiple slabs if you have a slab with no lower and upper limits."
@@ -14180,9 +14237,9 @@ msgstr "Du kan lägga till ytterligare detaljer, om någon, och skicka erbjudand
 
 #: hrms/hr/doctype/employee_checkin/employee_checkin.py:109
 msgid "You must be within {0} meters of your shift location to check in."
-msgstr "Du måste befinna dig inom {0} meter från din arbetsplats för att checka in."
+msgstr "Du måste befinna dig inom {0} meter från din arbetsplats för att stämpla."
 
-#: hrms/hr/doctype/compensatory_leave_request/compensatory_leave_request.py:51
+#: hrms/hr/doctype/compensatory_leave_request/compensatory_leave_request.py:52
 msgid "You were only present for Half Day on {}. Cannot apply for a full day compensatory leave"
 msgstr "Du var bara närvarande under halvdag den {}. Kan inte ansöka om heldag kompensation ledighet"
 
@@ -14194,7 +14251,7 @@ msgstr "Din Intervju är ombokad från {0} {1} - {2} till {3} {4} - {5}"
 msgid "Your password has expired. Please reset your password to continue"
 msgstr "Ditt lösenord har upphört att gälla. Återställ ditt lösenord för att fortsätta"
 
-#: hrms/hr/doctype/compensatory_leave_request/compensatory_leave_request.py:99
+#: hrms/hr/doctype/compensatory_leave_request/compensatory_leave_request.py:100
 msgid "active"
 msgstr "aktiv"
 
@@ -14274,7 +14331,7 @@ msgstr "via Lönekomponent synk"
 msgid "{0} & {1}"
 msgstr "{0} & {1}"
 
-#: frontend/src/components/ExpenseClaimItem.vue:86
+#: frontend/src/components/ExpenseClaimItem.vue:84
 msgid "{0} & {1} more"
 msgstr "{0} & {1} mer"
 
@@ -14348,7 +14405,7 @@ msgstr "{0} har {1} aktiverat"
 msgid "{0} is mandatory"
 msgstr "{0} erfodras"
 
-#: hrms/hr/doctype/compensatory_leave_request/compensatory_leave_request.py:68
+#: hrms/hr/doctype/compensatory_leave_request/compensatory_leave_request.py:69
 msgid "{0} is not a holiday."
 msgstr "{0} är inte helgdag"
 
@@ -14356,7 +14413,7 @@ msgstr "{0} är inte helgdag"
 msgid "{0} is not allowed to submit Interview Feedback for the Interview: {1}"
 msgstr "{0} är inte tillåtern att  godkänna Intervju Återoppling för Intervju: {1}"
 
-#: hrms/hr/doctype/leave_application/leave_application.py:575
+#: hrms/hr/doctype/leave_application/leave_application.py:577
 msgid "{0} is not in Optional Holiday List"
 msgstr "{0} finns inte i valfri Helg Lista"
 
@@ -14368,7 +14425,11 @@ msgstr "{0} är inte i en giltig Löneperiod"
 msgid "{0} is required"
 msgstr "{0} erfodras"
 
-#: hrms/hr/doctype/leave_allocation/leave_allocation.py:345
+#: hrms/hr/doctype/leave_allocation/leave_allocation.py:358
+msgid "{0} leaves allocated successfully"
+msgstr "{0} ledigheter tilldelade"
+
+#: hrms/hr/doctype/leave_allocation/leave_allocation.py:353
 msgid "{0} leaves were manually allocated by {1} on {2}"
 msgstr "{0} ledigheter tilldelades manuellt av {1} {2}"
 
@@ -14388,6 +14449,10 @@ msgstr "{0} klar!"
 #: frontend/src/components/RequestActionSheet.vue:280
 msgid "{0} successfully!"
 msgstr "{0} lyckad!"
+
+#: hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.js:261
+msgid "{0} to {1} employee(s)?"
+msgstr "{0} till {1} i personal?"
 
 #: frontend/src/components/FormView.vue:549
 msgid "{0} updated successfully!"
@@ -14432,7 +14497,7 @@ msgstr "{} "
 #. Count format of shortcut in the Recruitment Workspace
 #: hrms/hr/workspace/recruitment/recruitment.json
 msgid "{} Accepted"
-msgstr "{} Godkänd"
+msgstr "{} Accepterad"
 
 #. Count format of shortcut in the HR Workspace
 #: hrms/hr/workspace/hr/hr.json
